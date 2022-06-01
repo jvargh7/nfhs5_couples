@@ -20,6 +20,8 @@ partner_df <- readRDS(paste0(path_couples_folder,"/working/nfhs5 couples.RDS")) 
                 # m_dbp,
                 m_dm,
                 m_htn,
+                m_self_diabetes,
+                m_self_hypertension,
                 
                 f_caste,f_religion,
                 
@@ -31,11 +33,18 @@ partner_df <- readRDS(paste0(path_couples_folder,"/working/nfhs5 couples.RDS")) 
                 # f_sbp,
                 # f_dbp,
                 f_dm,
-                f_htn,v001,v002
+                f_htn,
+                f_self_diabetes,
+                f_self_hypertension,v001,v002
   ) %>% 
   mutate(f_wealth = as.character(f_wealth),
          f_rural = f_rural - 1) %>%
   mutate_at(vars(f_bmi,m_bmi),function(x) x/100) %>% 
+  mutate_at(vars(m_self_diabetes,m_self_hypertension,
+                 f_self_diabetes,f_self_hypertension
+  ),function(x) case_when(is.na(x) ~ 0,
+                          TRUE ~ x)) %>% 
+  
   mutate_at(vars(f_age,m_age,f_eduyr,m_eduyr),~as.numeric(.)) %>% 
   mutate(c_age = (f_age + m_age)/2) %>% 
   

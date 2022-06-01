@@ -204,7 +204,8 @@ mutate_at(vars(sb18s,sb18d,
          f_sbp = rowMeans(.[,c("sb18s","sb25s","sb29s")],na.rm=TRUE),
          m_sbp = rowMeans(.[,c("smb18s","smb25s","smb29s")],na.rm=TRUE),
          
-         f_dbp = rowMeans(.[,c("sb18d","sb25d","sb29d")],na.rm=TRUE),
+         # "sb18d" has 108 everywhere
+         f_dbp = rowMeans(.[,c("sb25d","sb29d")],na.rm=TRUE),
          m_dbp = rowMeans(.[,c("smb18d","smb25d","smb29d")],na.rm=TRUE),
          
          f_prehtn = case_when(f_self_hypertension == 1 ~ NA_real_,

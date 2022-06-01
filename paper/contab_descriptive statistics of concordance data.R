@@ -73,111 +73,111 @@ summary_table <- bind_rows(summary_survey_groups,
   )) %>% 
   arrange(variable,group)
 
-write_csv(summary_table,paste0(path_couples_folder,"/working/concordance/descriptives.csv"))
+write_csv(summary_table,paste0(path_couples_folder,"/working/nfhs5 concordance/descriptives.csv"))
 
-# Associations ---------
-
-survey::svytable(~m_religion + f_religion,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-survey::svytable(~m_caste + f_caste,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-survey::svyvar(~f_age + m_age,design=descriptive_svydesign) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-with(descriptive_df,cor.test(f_age,m_age,use="complete.obs"))
-
-survey::svyvar(~f_eduyr + m_eduyr,design=descriptive_svydesign,na.rm = TRUE) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-with(descriptive_df,cor.test(f_eduyr,m_eduyr,use="complete.obs"))
-
-survey::svytable(~f_alcohol + m_alcohol,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-survey::svytable(~f_smoke + m_smoke,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-survey::svytable(~f_insurance + m_insurance,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-survey::svytable(~f_self_diabetes + m_self_diabetes,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-survey::svytable(~f_self_diabmed + m_self_diabmed,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-survey::svytable(~f_self_hypertension + m_self_hypertension,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-survey::svytable(~f_self_htnmed + m_self_htnmed,design = descriptive_svydesign) %>% 
-  summary(.,statistic = "Chisq")
-
-
-survey::svyvar(~f_bmi + m_bmi,design=descriptive_svydesign,na.rm = TRUE) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-
-survey::svyvar(~f_glucose + m_glucose,design=descriptive_svydesign,na.rm = TRUE) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-with(descriptive_df,cor.test(f_glucose,m_glucose,use="complete.obs"))
-
-survey::svyvar(~f_sbp + m_sbp,design=descriptive_svydesign,na.rm = TRUE) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-with(descriptive_df,cor.test(f_sbp,m_sbp,use="complete.obs"))
-
-survey::svyvar(~f_dbp + m_dbp,design=descriptive_svydesign,na.rm = TRUE) %>% 
-  as.matrix(v) %>% 
-  cov2cor()
-with(descriptive_df,cor.test(f_dbp,m_dbp,use="complete.obs"))
-
-# ODDS RATIO ------------
-
-survey::svyglm(f_alcohol ~ m_alcohol,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_smoke ~ m_smoke,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_insurance ~ m_insurance,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_self_diabetes ~ m_self_diabetes,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_self_diabmed ~ m_self_diabmed,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_self_hypertension ~ m_self_hypertension,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
-
-survey::svyglm(f_self_htnmed ~ m_self_htnmed,design=descriptive_svydesign,family = binomial()) %>% 
-  broom::tidy(exponentiate = TRUE) %>% 
-  mutate(coef_ci = paste0(round(estimate,1)," (",
-                          round(estimate - 1.96*std.error,1) , ",",
-                          round(estimate + 1.96*std.error,1), ")"
-  ))
+# # Associations ---------
+# 
+# survey::svytable(~m_religion + f_religion,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# survey::svytable(~m_caste + f_caste,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# survey::svyvar(~f_age + m_age,design=descriptive_svydesign) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# with(descriptive_df,cor.test(f_age,m_age,use="complete.obs"))
+# 
+# survey::svyvar(~f_eduyr + m_eduyr,design=descriptive_svydesign,na.rm = TRUE) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# with(descriptive_df,cor.test(f_eduyr,m_eduyr,use="complete.obs"))
+# 
+# survey::svytable(~f_alcohol + m_alcohol,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# survey::svytable(~f_smoke + m_smoke,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# survey::svytable(~f_insurance + m_insurance,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# survey::svytable(~f_self_diabetes + m_self_diabetes,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# survey::svytable(~f_self_diabmed + m_self_diabmed,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# survey::svytable(~f_self_hypertension + m_self_hypertension,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# survey::svytable(~f_self_htnmed + m_self_htnmed,design = descriptive_svydesign) %>% 
+#   summary(.,statistic = "Chisq")
+# 
+# 
+# survey::svyvar(~f_bmi + m_bmi,design=descriptive_svydesign,na.rm = TRUE) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# 
+# survey::svyvar(~f_glucose + m_glucose,design=descriptive_svydesign,na.rm = TRUE) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# with(descriptive_df,cor.test(f_glucose,m_glucose,use="complete.obs"))
+# 
+# survey::svyvar(~f_sbp + m_sbp,design=descriptive_svydesign,na.rm = TRUE) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# with(descriptive_df,cor.test(f_sbp,m_sbp,use="complete.obs"))
+# 
+# survey::svyvar(~f_dbp + m_dbp,design=descriptive_svydesign,na.rm = TRUE) %>% 
+#   as.matrix(v) %>% 
+#   cov2cor()
+# with(descriptive_df,cor.test(f_dbp,m_dbp,use="complete.obs"))
+# 
+# # ODDS RATIO ------------
+# 
+# survey::svyglm(f_alcohol ~ m_alcohol,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_smoke ~ m_smoke,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_insurance ~ m_insurance,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_self_diabetes ~ m_self_diabetes,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_self_diabmed ~ m_self_diabmed,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_self_hypertension ~ m_self_hypertension,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
+# 
+# survey::svyglm(f_self_htnmed ~ m_self_htnmed,design=descriptive_svydesign,family = binomial()) %>% 
+#   broom::tidy(exponentiate = TRUE) %>% 
+#   mutate(coef_ci = paste0(round(estimate,1)," (",
+#                           round(estimate - 1.96*std.error,1) , ",",
+#                           round(estimate + 1.96*std.error,1), ")"
+#   ))
