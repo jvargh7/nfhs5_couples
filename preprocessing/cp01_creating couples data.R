@@ -11,6 +11,13 @@ iacr_variables <- iacr_variables[!iacr_variables %in% c("mcaseid")]
 iacr_extract <- read_dta(paste0(path_india_raw_data,"/IACR7ADT/IACR7AFL.dta"),
                          col_select = iacr_variables)
 
+# Flowchart #1: Heterosexual couples
+nrow(iacr_extract)
+iacr_extract %>% 
+  distinct(v001,v002) %>% 
+  nrow()
+
+
 iapr_extract <- read_dta(paste0(path_india_raw_data,"/IAPR7ADT/IAPR7AFL.dta"),
                          col_select = na.omit(couples_variables$iapr7a))
 

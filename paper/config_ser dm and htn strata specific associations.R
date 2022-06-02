@@ -30,7 +30,11 @@ fig_df <- bind_rows(strata_associations,
                                   "Religion: Other"
                                   ))) %>% 
   mutate(lci = estimate/exp(1.96*std.error),
-         uci = estimate*exp(1.96*std.error))
+         uci = estimate*exp(1.96*std.error)) %>% 
+  mutate(uci = case_when(uci > 3 ~ 3,
+                         TRUE ~ uci),
+         lci = case_when(lci < 0.5 ~ 0.5,
+                         TRUE ~ lci))
 
 figA <- ggplot(data=fig_df %>% dplyr::filter(disease == "Diabetes"),
                aes(x=estimate,y=strata,

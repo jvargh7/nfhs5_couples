@@ -3,9 +3,23 @@ library(srvyr)
 source("preprocessing/cp04_concordance datasets.R")
 
 descriptive_df <- partner_df %>% 
-  dplyr::filter((!is.na(f_dm)&!is.na(m_dm))|(!is.na(f_htn)&!is.na(m_htn)))
+  dplyr::filter((!is.na(f_dm)&!is.na(m_dm))|(!is.na(f_htn)&!is.na(m_htn))) %>% 
+  mutate(c_dm = case_when(f_dm == 1 & m_dm == 1 ~ 1,
+                          f_dm == 0 | m_dm == 0 ~ 0,
+                          TRUE ~ NA_real_),
+         c_htn = case_when(f_htn == 1 & m_htn == 1 ~ 1,
+                          f_htn == 0 | m_htn == 0 ~ 0,
+                          TRUE ~ NA_real_)
+         )
 
-descriptive_df %>% distinct(v001,v002) %>% View()
+
+# descriptive_df - dm_df
+# descriptive_df %>% 
+#   dplyr::filter(!is.na(f_bmi),!is.na(m_bmi)) %>%
+#   dplyr::filter(!is.na(f_caste)) %>%
+#   nrow()
+
+# descriptive_df %>% distinct(v001,v002) %>% View()
 
 descriptive_svydesign <- descriptive_df %>% 
   as_survey_design(.data = .,
@@ -63,7 +77,7 @@ summary_table <- bind_rows(summary_survey_groups,
                            summary_survey_variances) %>% 
   left_join(counts_variables,by="variable") %>% 
   dplyr::filter(!is.na(proportion)) %>% 
-  mutate(coef_ci = case_when(str_detect(variable,"(_age|_eduyr|_bmi|_hb|_glucose|_sbp|_dbp)") ~ 
+  mutate(coef_ci = case_when(str_detect(variable,"(_age|_eduyr|_bmi|_hb|_glucose|_sbp|_dbp|_children)") ~ 
                                paste0(round(proportion,1)," (",
                                       round(proportion_low,1),", ",
                                       round(proportion_upp,1),")"),
@@ -73,7 +87,7 @@ summary_table <- bind_rows(summary_survey_groups,
   )) %>% 
   arrange(variable,group)
 
-write_csv(summary_table,paste0(path_couples_folder,"/working/nfhs5 concordance/descriptives.csv"))
+write_csv(summary_table,paste0(path_couples_folder,"/working/nfhs5 concordance/nfhs5 descriptives.csv"))
 
 # # Associations ---------
 # 

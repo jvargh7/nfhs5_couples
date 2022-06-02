@@ -1,4 +1,5 @@
-# partner_df %>% distinct(v001,v002,.keep_all = TRUE) %>% View()
+# Flowchart Step 3
+partner_df %>% distinct(v001,v002,.keep_all = TRUE) %>% View()
 
 partner_df <- readRDS(paste0(path_couples_folder,"/working/nfhs5 couples.RDS")) %>% 
   dplyr::filter(f_age>=18,m_age>=21) %>% 
@@ -73,6 +74,7 @@ dm_df <- partner_df %>%
   dplyr::select(-f_htn,-m_htn)  %>% 
   dplyr::filter(complete.cases(.)) 
 
+# Flowchart Step 4.1
 # dm_df %>% distinct(v001,v002,.keep_all = TRUE) %>% View()
 
 dm_svydesign <- dm_df %>%  
@@ -86,7 +88,7 @@ htn_df <- partner_df %>%
   dplyr::select(-f_dm,-m_dm)  %>% 
   dplyr::filter(complete.cases(.))
 
-# htn_df %>% distinct(v001,v002,.keep_all = TRUE) %>% View()
+htn_df %>% distinct(v001,v002,.keep_all = TRUE) %>% View()
 
 
 htn_svydesign <- htn_df %>%  
