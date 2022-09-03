@@ -66,27 +66,19 @@ male_processed <- male %>%
 saveRDS(female_processed,paste0(path_couples_folder,"/working/nfhs5c female.RDS"))
 saveRDS(male_processed,paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
 
-# female_processed <- readRDS(paste0(path_couples_folder,"/working/nfhs5c female.RDS"))
-# male_processed <- readRDS(paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
-
 
 couples <- left_join(female_processed %>% 
-                       dplyr::select(cluster,hhid,linenumber,spouse_id,
-                                     strata,state,psu,sampleweight,
-                                     interview,phase,
-                                     
+                       dplyr::select(cluster,hhid,linenumber,
                                      caste,swealthq_ur,wealthq,
-                                     religion,rural,nmembers,
+                                     religion,residence,
                                      
                                      age,eduyr,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
-                                     weight,height,waistcircumference,hipcircumference,
-                                     waist_hip,highwc,highwhr,lengthmar,
                                      
                                      
                                      
-                                     dm,glucose,screened_dm,diagnosed_dm,treated_dm,
-                                     htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
+                                     dm,screened_dm,diagnosed_dm,treated_dm,
+                                     htn,screened_bp,diagnosed_bp,treated_bp
                                      ) %>% 
                        rename_at(vars(age:treated_bp),~paste0("w_",.)),
                      
@@ -99,12 +91,11 @@ couples <- left_join(female_processed %>%
                                      
                                      age,eduyr,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
-                                     weight,height,waistcircumference,hipcircumference,
-                                     waist_hip,highwc,highwhr,lengthmar,
                                      
                                      
-                                     dm,glucose,screened_dm,diagnosed_dm,treated_dm,
-                                     htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
+                                     
+                                     dm,screened_dm,diagnosed_dm,treated_dm,
+                                     htn,screened_bp,diagnosed_bp,treated_bp
                        ) %>% 
                        rename_at(vars(age:treated_bp),~paste0("h_",.)),
                      by=c("cluster","hhid","linenumber"="spouse_id")
