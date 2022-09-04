@@ -73,7 +73,7 @@ saveRDS(male_processed,paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
 couples <- left_join(female_processed %>% 
                        dplyr::select(cluster,hhid,linenumber,spouse_id,
                                      strata,state,psu,sampleweight,
-                                     interview,phase,
+                                     interview,phase,district,
                                      
                                      caste,swealthq_ur,wealthq,
                                      religion,rural,nmembers,

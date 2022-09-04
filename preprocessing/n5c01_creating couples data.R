@@ -2,7 +2,7 @@
 iapr_id_vars <- c("cluster","hhid","linenumber")
 
 iacr7c_female_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
-                                        sheet = "iacr7c variables") %>% 
+                                              sheet = "iacr7c variables") %>% 
   dplyr::filter(!is.na(female))
 
 female_pr_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
@@ -11,7 +11,7 @@ female_pr_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx
 
 
 iacr7c_male_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
-                                              sheet = "iacr7c variables") %>% 
+                                            sheet = "iacr7c variables") %>% 
   dplyr::filter(!is.na(male)) 
 
 male_pr_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
@@ -21,7 +21,7 @@ male_pr_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
 
 # Data ---------
 female <- read_dta(paste0(path_india_raw_data,"/IACR7CDT/IACR7CFL.dta"),
-                         col_select = iacr7c_female_variables$female)  %>% 
+                   col_select = iacr7c_female_variables$female)  %>% 
   rename_with(~ iacr7c_female_variables$new_var[which(iacr7c_female_variables$female == .x)], 
               .cols = iacr7c_female_variables$female)
 
@@ -66,20 +66,28 @@ male_processed <- male %>%
 saveRDS(female_processed,paste0(path_couples_folder,"/working/nfhs5c female.RDS"))
 saveRDS(male_processed,paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
 
+# female_processed <- readRDS(paste0(path_couples_folder,"/working/nfhs5c female.RDS"))
+# male_processed <- readRDS(paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
+
 
 couples <- left_join(female_processed %>% 
-                       dplyr::select(cluster,hhid,linenumber,
+                       dplyr::select(cluster,hhid,linenumber,spouse_id,
+                                     strata,state,psu,sampleweight,
+                                     interview,phase,district,
+                                     
                                      caste,swealthq_ur,wealthq,
-                                     religion,residence,
+                                     religion,rural,nmembers,
                                      
                                      age,eduyr,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
+                                     weight,height,waistcircumference,hipcircumference,
+                                     waist_hip,highwc,highwhr,lengthmar,
                                      
                                      
                                      
-                                     dm,screened_dm,diagnosed_dm,treated_dm,
-                                     htn,screened_bp,diagnosed_bp,treated_bp
-                                     ) %>% 
+                                     dm,glucose,screened_dm,diagnosed_dm,treated_dm,
+                                     htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
+                       ) %>% 
                        rename_at(vars(age:treated_bp),~paste0("w_",.)),
                      
                      
@@ -91,15 +99,16 @@ couples <- left_join(female_processed %>%
                                      
                                      age,eduyr,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
+                                     weight,height,waistcircumference,hipcircumference,
+                                     waist_hip,highwc,highwhr,lengthmar,
                                      
                                      
-                                     
-                                     dm,screened_dm,diagnosed_dm,treated_dm,
-                                     htn,screened_bp,diagnosed_bp,treated_bp
+                                     dm,glucose,screened_dm,diagnosed_dm,treated_dm,
+                                     htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
                        ) %>% 
                        rename_at(vars(age:treated_bp),~paste0("h_",.)),
                      by=c("cluster","hhid","linenumber"="spouse_id")
-                     )
+)
 
 saveRDS(couples,paste0(path_couples_folder,"/working/nfhs5c couples.RDS"))
 

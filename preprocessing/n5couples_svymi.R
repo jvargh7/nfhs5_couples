@@ -22,7 +22,7 @@ require(mice)
 before_imputation <- couples %>% 
   dplyr::select(cluster,hhid,linenumber,spouse_id,
                 strata,state,psu,sampleweight,
-                interview,phase,
+                interview,phase,district,
                 
                 one_of(continuous_vars),one_of(proportion_vars),one_of(grouped_vars)) %>% 
   # mutate_at(vars(state,w_moderate_pa,w_vigorous_pa,
@@ -141,13 +141,53 @@ before_imputation <- couples %>%
 
 
 interaction_terms <- c("w_htn_rural","h_htn_rural",
-                       "w_htn_h_education_2","w_htn_education_3","w_htn_education_4",
+                       "w_htn_h_education_2","w_htn_h_education_3","w_htn_h_education_4",
                        "h_htn_w_education_2","h_htn_w_education_3","h_htn_w_education_4",
                        "w_htn_h_ge40","h_htn_w_ge40",
                        "w_htn_hh_low","w_htn_hh_medium","w_htn_hh_high","w_htn_hh_highest",
                        "h_htn_hh_low","h_htn_hh_medium","h_htn_hh_high","h_htn_hh_highest",
-                       
-                       
-)
+                       "w_dm_rural","h_dm_rural",
+                       "w_dm_h_education_2","w_dm_h_education_3","w_dm_h_education_4",
+                       "h_dm_w_education_2","h_dm_w_education_3","h_dm_w_education_4",
+                       "w_dm_h_ge40","h_dm_w_ge40",
+                       "w_dm_hh_low","w_dm_hh_medium","w_dm_hh_high","w_dm_hh_highest",
+                       "h_dm_hh_low","h_dm_hh_medium","h_dm_hh_high","h_dm_hh_highest")
+
+mi_null <- mice(before_imputation,
+                maxit = 0)
+
+method = mi_null$method
+pred = mi_null$predictorMatrix
+
+pred[c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district"),] <- 0
+pred[,c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district")] <- 0
+
+# Do not impute and do not use for imputation ------
+pred[c("w_htn","h_htn","w_dm","h_dm"),] <-0
+pred[,c("w_htn","h_htn","w_dm","h_dm")] <-0
+
+# Impute via equation and do not use for imputation , --------
+
+method["w_ge40"] <- "~I((w_age>=40)*1)"
+method["h_ge40"] <- "~I((h_age>=40)*1)"
+pred[c("w_ge40","h_ge40"),] <- 0
+pred[,c("w_ge40","h_ge40")] <- 0
 
 
+for(i_t in interaction_terms){
+  print(i_t)
+  outcome_term = str_extract(i_t,"^(w|h)_(htn|dm)")
+  em_term = str_replace(i_t,pattern=paste0(outcome_term,"_"),replacement = "")
+  method[i_t] = paste0("~I(",outcome_term,"*",em_term,")")
+  
+  # Do not use interaction terms for imputation of the source variables
+  pred[c(outcome_term,em_term),i_t] <- 0
+}
+
+# Takes ~4h
+mi_dfs <- mice(before_imputation,
+               method = method,
+               pred = pred,
+               m=10,maxit=50,seed=500)
+
+saveRDS(mi_dfs, paste0(path_couples_folder,"/working/nfhs5c couples_mi_dfs.RDS"))
