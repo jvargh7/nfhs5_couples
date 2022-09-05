@@ -26,7 +26,24 @@ tab_stratum <- bind_rows(htn_main,
   dplyr::select(label,outcome,model,RR,theta_D,lci,uci) %>% 
   mutate(est = exp(theta_D),
          sex_self = case_when(str_detect(model,"W") ~ "Wives",
-                              TRUE ~ "Husbands")) 
+                              TRUE ~ "Husbands"))   %>% 
+  mutate(label = factor(label,levels=c("Overall",
+                                       "Age < 40",
+                                       "Age >= 40",
+                                       "Education: None",
+                                       "Education: Primary",
+                                       "Education: Secondary",
+                                       "Education: Higher",
+                                       "Residence: Urban",
+                                       "Residence: Rural",
+                                       "Wealth: Lowest",
+                                       "Wealth: Low",
+                                       "Wealth: Medium",
+                                       "Wealth: High",
+                                       "Wealth: Highest",
+                                       "Religion: Hindu",
+                                       "Religion: Muslim",
+                                       "Religion: Other"),ordered=TRUE))
 
 
 figA <- tab_stratum %>% dplyr::filter(outcome == "Diabetes") %>% 
