@@ -486,7 +486,7 @@ n5couples_preprocessing <- function(df){
            age_ge40 = case_when(age >= 40 ~ 1,
                                 age < 40 ~ 0,
                                 TRUE ~ NA_real_)) %>% 
-    
+    mutate(bmi = bmi/100) %>% 
   
     
     return(.)

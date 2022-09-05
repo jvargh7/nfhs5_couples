@@ -15,7 +15,7 @@ proportion_vars <- c(paste0(rep(c("w_","h_"),each=9),
                               "diagnosed_dm","treated_dm",
                               
                               "tobacco_any","alcohol",
-                              "dm","htn")),"rural")
+                              "dm","htn")),"rural","dm_joint","htn_joint")
 
 grouped_vars <- c("w_education","w_bmi_category","h_bmi_category","h_education","caste","religion","wealthq","swealthq_ur")
 

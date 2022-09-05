@@ -70,7 +70,14 @@ saveRDS(male_processed,paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
 # male_processed <- readRDS(paste0(path_couples_folder,"/working/nfhs5c male.RDS"))
 
 
+# Flowchart: Heterosexual couples
+female_processed %>% 
+  distinct(cluster,hhid) %>% 
+  nrow()
+
+
 couples <- left_join(female_processed %>% 
+                       dplyr::filter(!pregnant == 1) %>% 
                        dplyr::select(cluster,hhid,linenumber,spouse_id,
                                      strata,state,psu,sampleweight,
                                      interview,phase,district,
@@ -109,6 +116,12 @@ couples <- left_join(female_processed %>%
                        rename_at(vars(age:treated_bp),~paste0("h_",.)),
                      by=c("cluster","hhid","linenumber"="spouse_id")
 )
+
+# Flowchart: Non-pregnant couples
+couples %>% 
+  distinct(cluster,hhid) %>% 
+  nrow()
+
 
 saveRDS(couples,paste0(path_couples_folder,"/working/nfhs5c couples.RDS"))
 

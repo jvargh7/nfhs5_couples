@@ -23,11 +23,28 @@ couples <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>
   ) %>% 
   
   mutate_at(vars(nmembers,w_nchildren,h_nchildren,w_weight,w_height,h_weight,h_height,
-                 w_age,h_age),~as.numeric(.))
+                 w_age,h_age),~as.numeric(.))  %>% 
+  mutate(dm_joint = case_when(w_dm == 1 & h_dm == 1 ~ 1,
+                              w_dm == 0 | h_dm == 0 ~ 0,
+                              TRUE ~ NA_real_),
+         htn_joint = case_when(w_htn == 1 & h_htn == 1 ~ 1,
+                               w_htn == 0 | h_htn == 0 ~ 0,
+                               TRUE ~ NA_real_)
+  )
+
+
+# couples %>% 
+#   distinct(cluster,hhid) %>% 
+#   nrow()
 
 excluded <- couples %>% 
   dplyr::filter(!(dm_eligible == 1 &htn_eligible == 1)) 
 
 
 couples <- couples %>% 
-  dplyr::filter(dm_eligible == 1, htn_eligible == 1) 
+  dplyr::filter(dm_eligible == 1, htn_eligible == 1)
+
+# couples %>% 
+#   distinct(cluster,hhid) %>% 
+#   nrow()
+

@@ -103,7 +103,12 @@ before_imputation <- couples %>%
          h_htn_hh_low = h_htn*hh_low,
          h_htn_hh_medium = h_htn*hh_medium,
          h_htn_hh_high = h_htn*hh_high,
-         h_htn_hh_highest = h_htn*hh_highest
+         h_htn_hh_highest = h_htn*hh_highest,
+         
+         h_htn_religion_muslim = h_htn*religion_muslim,
+         w_htn_religion_muslim = w_htn*religion_muslim,
+         h_htn_religion_other = h_htn*religion_other,
+         w_htn_religion_other = w_htn*religion_other
   ) %>% 
   mutate(w_dm_rural = rural*w_dm,
          h_dm_rural = rural*h_dm,
@@ -134,7 +139,12 @@ before_imputation <- couples %>%
          h_dm_hh_low = h_dm*hh_low,
          h_dm_hh_medium = h_dm*hh_medium,
          h_dm_hh_high = h_dm*hh_high,
-         h_dm_hh_highest = h_dm*hh_highest
+         h_dm_hh_highest = h_dm*hh_highest,
+         
+         h_dm_religion_muslim = h_dm*religion_muslim,
+         w_dm_religion_muslim = w_dm*religion_muslim,
+         h_dm_religion_other = h_dm*religion_other,
+         w_dm_religion_other = w_dm*religion_other
   ) %>% 
   dplyr::select(-w_education,-h_education,-religion,
                 -wealthq)
@@ -146,12 +156,18 @@ interaction_terms <- c("w_htn_rural","h_htn_rural",
                        "w_htn_h_ge40","h_htn_w_ge40",
                        "w_htn_hh_low","w_htn_hh_medium","w_htn_hh_high","w_htn_hh_highest",
                        "h_htn_hh_low","h_htn_hh_medium","h_htn_hh_high","h_htn_hh_highest",
+                       "w_htn_religion_muslim","w_htn_religion_other",
+                       "h_htn_religion_muslim","h_htn_religion_other",
+                       
+                       
                        "w_dm_rural","h_dm_rural",
                        "w_dm_h_education_2","w_dm_h_education_3","w_dm_h_education_4",
                        "h_dm_w_education_2","h_dm_w_education_3","h_dm_w_education_4",
                        "w_dm_h_ge40","h_dm_w_ge40",
                        "w_dm_hh_low","w_dm_hh_medium","w_dm_hh_high","w_dm_hh_highest",
-                       "h_dm_hh_low","h_dm_hh_medium","h_dm_hh_high","h_dm_hh_highest")
+                       "h_dm_hh_low","h_dm_hh_medium","h_dm_hh_high","h_dm_hh_highest",
+                       "w_dm_religion_muslim","w_dm_religion_other",
+                       "h_dm_religion_muslim","h_dm_religion_other")
 
 mi_null <- mice(before_imputation,
                 maxit = 0)
