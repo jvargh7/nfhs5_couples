@@ -90,7 +90,8 @@ couples <- left_join(female_processed %>%
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
                                      
-                                     
+                                     current_dm, toldhigh_dm,
+                                     current_bp, toldhigh_bp,
                                      
                                      dm,glucose,screened_dm,diagnosed_dm,treated_dm,
                                      htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
@@ -109,6 +110,8 @@ couples <- left_join(female_processed %>%
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
                                      
+                                     current_dm, toldhigh_dm,
+                                     current_bp, toldhigh_bp,
                                      
                                      dm,glucose,screened_dm,diagnosed_dm,treated_dm,
                                      htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
