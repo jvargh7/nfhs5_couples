@@ -89,7 +89,7 @@ couples <- left_join(female_processed %>%
                                      alcohol,tobacco_any,bmi,bmi_category,
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
-                                     
+                                     age1stmarriage,lengthmar,lengthmar_ge10,age_ge40,
                                      
                                      
                                      dm,glucose,screened_dm,diagnosed_dm,treated_dm,
@@ -108,7 +108,7 @@ couples <- left_join(female_processed %>%
                                      alcohol,tobacco_any,bmi,bmi_category,
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
-                                     
+                                     age1stmarriage,lengthmar,lengthmar_ge10,age_ge40,
                                      
                                      dm,glucose,screened_dm,diagnosed_dm,treated_dm,
                                      htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp

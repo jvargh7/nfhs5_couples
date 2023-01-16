@@ -16,7 +16,7 @@ if(Sys.info()["user"]=="JVARGH7"){
 options(survey.adjust.domain.lonely=TRUE)
 options(survey.lonely.psu="adjust")
 
-fasting_time <- 11.9
+fasting_time <- 7.9
 
 bmi_max = 6000
 
@@ -36,11 +36,21 @@ male_whr_cutoff = 0.95
 # male_wc_cutoff = 90 
 # male_whr_cutoff = 0.9
 
-fpg_cutoff <- 126
-rpg_cutoff <- 200
+rpg_cutoff <- 220
+fpg_cutoff <- rpg_cutoff 
 sbp_cutoff <- 140
 dbp_cutoff <- 90
 
+
+
+
+fpg_target <- 126
+rpg_target <- 180 #Indian DM guidelines
+# Indian HTN guidelines (Shah 2020: 130/80 for <= 60y, 140/90 otherwise)
+# Indian HTN guidelines (ICMR 2018: 140/90 for <= 80y, 150/90 otherwise)
+sbp_target <- c(140,150) 
+agebp_cutoff <- 80
+dbp_target <- c(90,90)
 fpgpre_cutoff <- 100
 rpgpre_cutoff <- 140
 

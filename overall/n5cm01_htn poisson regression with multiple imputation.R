@@ -4,7 +4,7 @@ require(mice)
 require(srvyr)
 require(survey)
 
-source("sensitivity/n5cs_htn poisson regression equations.R")
+source("overall/n5cm_htn poisson regression equations.R")
 
 # Run Poisson Regression ------------
 
@@ -29,9 +29,6 @@ for(i in 1:mi_dfs$m){
   overall_h4[[i]] = svyglm(h4,design=svy_des,family=quasipoisson());
   overall_w5[[i]] = svyglm(w5,design=svy_des,family=quasipoisson());
   overall_h5[[i]] = svyglm(h5,design=svy_des,family=quasipoisson());
-  overall_w6[[i]] = svyglm(w6,design=svy_des,family=quasipoisson());
-  overall_h6[[i]] = svyglm(h6,design=svy_des,family=quasipoisson());
-  
   
   gc();rm(df);rm(svy_des)
 }
@@ -52,8 +49,7 @@ overall_w4_out = mice_coef_svyglm(overall_w4)
 overall_h4_out = mice_coef_svyglm(overall_h4)
 overall_w5_out = mice_coef_svyglm(overall_w5)
 overall_h5_out = mice_coef_svyglm(overall_h5)
-overall_w6_out = mice_coef_svyglm(overall_w6)
-overall_h6_out = mice_coef_svyglm(overall_h6)
+
 
 bind_rows(
   overall_w1_out %>% mutate(model = "W1"),
@@ -64,13 +60,11 @@ bind_rows(
   overall_h3_out %>% mutate(model = "H3"),
   overall_w4_out %>% mutate(model = "W4"),
   overall_h4_out %>% mutate(model = "H4"),
-  overall_w5_out %>% mutate(model = "W4"),
-  overall_h5_out %>% mutate(model = "H4"),
-  overall_w6_out %>% mutate(model = "W6"),
-  overall_h6_out %>% mutate(model = "H6")
+  overall_w5_out %>% mutate(model = "W5"),
+  overall_h5_out %>% mutate(model = "H5")
   
 ) %>% 
-  write_csv(.,"sensitivity/n5cs01_htn poisson regression with multiple imputation.csv")
+  write_csv(.,"overall/n5cm01_htn poisson regression with multiple imputation.csv")
 
 source("C:/code/external/functions/survey/mice_contrasts_svyglm.R")
 # Check: https://github.com/jvargh7/functions/blob/main/survey/mice_contrasts_svyglm.R
@@ -107,11 +101,6 @@ contrasts_h5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifie
 contrasts_w5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_highest",exposure = "h_htn")
 contrasts_h5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_highest",exposure="w_htn")
 
-contrasts_w6_out_rel2 = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "religion_muslim",exposure = "h_htn")
-contrasts_h6_out_rel2 = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="religion_muslim",exposure="w_htn")
-
-contrasts_w6_out_rel3 = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "religion_other",exposure = "h_htn")
-contrasts_h6_out_rel3 = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="religion_other",exposure="w_htn")
 
 
 bind_rows(
@@ -128,22 +117,16 @@ bind_rows(
   contrasts_h4_out %>% mutate(model = "H4"),
   
   contrasts_w5_out_wlt2 %>% mutate(model = "W5 Low"),
-  contrasts_h5_out_wlt2 %>% mutate(model = "W5 Low"),
+  contrasts_h5_out_wlt2 %>% mutate(model = "H5 Low"),
   
   contrasts_w5_out_wlt3 %>% mutate(model = "W5 Medium"),
-  contrasts_h5_out_wlt3 %>% mutate(model = "W5 Medium"),
+  contrasts_h5_out_wlt3 %>% mutate(model = "H5 Medium"),
   
   contrasts_w5_out_wlt4 %>% mutate(model = "W5 High"),
-  contrasts_h5_out_wlt4 %>% mutate(model = "W5 High"),
+  contrasts_h5_out_wlt4 %>% mutate(model = "H5 High"),
   
   contrasts_w5_out_wlt5 %>% mutate(model = "W5 Highest"),
-  contrasts_h5_out_wlt5 %>% mutate(model = "W5 Highest"),
-  
-  
-  contrasts_w6_out_rel2 %>% mutate(model = "W6 R2"),
-  contrasts_h6_out_rel2 %>% mutate(model = "H6 R2"),
-  contrasts_w6_out_rel3 %>% mutate(model = "W6 R3"),
-  contrasts_h6_out_rel3 %>% mutate(model = "H6 R3")
+  contrasts_h5_out_wlt5 %>% mutate(model = "H5 Highest")
   
 ) %>% 
-  write_csv(.,"sensitivity/n5cs01_htn contrasts for poisson regression with multiple imputation.csv")
+  write_csv(.,"overall/n5cm01_htn contrasts for poisson regression with multiple imputation.csv")

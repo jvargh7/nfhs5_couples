@@ -1,7 +1,7 @@
 require(srvyr)
 source("C:/code/external/functions/survey/svysummary.R")
 
-source("preprocessing/n5couples_analytic sample.R")
+source("preprocessing/n5cpre02_analytic sample.R")
 
 
 continuous_vars <- c(paste0(rep(c("w_","h_"),each=10),
@@ -48,7 +48,7 @@ couples_count <- couples %>%
 left_join(couples_svysummary,
           couples_count,
           by="variable") %>% 
-  write_csv(.,"models/summary table of analytic sample.csv")
+  write_csv(.,"overall/summary table of analytic sample.csv")
 
 # Analytic sample --------
 excluded_svy <- excluded  %>% 
@@ -78,7 +78,7 @@ excluded_count <- excluded %>%
 left_join(excluded_svysummary,
           excluded_count,
           by="variable") %>% 
-  write_csv(.,"models/summary table of excluded sample.csv")
+  write_csv(.,"overall/summary table of excluded sample.csv")
 
 
 

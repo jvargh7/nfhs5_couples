@@ -1,6 +1,6 @@
 w_covariates = "+ w_bmi + w_age + w_education_2 + w_education_3 + w_education_4 + w_tobacco_any + w_alcohol"
 h_covariates = "+ h_bmi + h_age + h_education_2 + h_education_3 + h_education_4 + h_tobacco_any + h_alcohol"
-hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_children + rural + religion_muslim + religion_other  + caste + factor(state)"
+hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_children + rural + factor(state)"
 #   + hh_children 
 
 w1 <- paste0("w_dm ~ h_dm",w_covariates,hh_covariates) %>% as.formula()
@@ -23,10 +23,6 @@ w5 <- paste0("w_dm ~ h_dm*hh_low + h_dm*hh_medium + h_dm*hh_high + h_dm*hh_highe
 h5 <- paste0("h_dm ~ w_dm*hh_low + w_dm*hh_medium + w_dm*hh_high + w_dm*hh_highest",h_covariates,hh_covariates) %>% 
   str_replace(.,"\\+ hh_low \\+ hh_medium \\+ hh_high \\+ hh_highest","") %>% as.formula()
 
-w6 <- paste0("w_dm ~ h_dm*religion_muslim + h_dm*religion_other",w_covariates,hh_covariates) %>% 
-  str_replace(.,"\\+ religion_muslim \\+ religion_other","") %>% as.formula()
-h6 <- paste0("h_dm ~ w_dm*religion_muslim + w_dm*religion_other",h_covariates,hh_covariates) %>% 
-  str_replace(.,"\\+ religion_muslim \\+ religion_other","") %>% as.formula()
 
 
 
@@ -47,5 +43,3 @@ overall_h4 = list()
 overall_w5 = list()
 overall_h5 = list()
 
-overall_w6 = list()
-overall_h6 = list()

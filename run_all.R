@@ -1,23 +1,20 @@
 rm(list=ls()); gc(); source(".Rprofile")
+source("overall/n5cm03_summary of analytic sample.R")
 
-source("preprocessing/n5couples_svymi.R")
+# Eq 2
 rm(list=ls()); gc(); source(".Rprofile")
+source("pooled/n5cpooled01_dm and htn poisson regression with multiple imputation.R")
 
-source("models/n5cm03_summary of analytic sample.R")
-
+# Eq 1a-b, 3a-b
 rm(list=ls()); gc(); source(".Rprofile")
-source("models/n5cm01_htn poisson regression with multiple imputation.R")
-
-
-rm(list=ls()); gc(); source(".Rprofile")
-source("models/n5cm02_dm poisson regression with multiple imputation.R")
+source("overall/n5cm01_htn poisson regression with multiple imputation.R")
 
 rm(list=ls()); gc(); source(".Rprofile")
-source("sensitivity/n5cs01_htn poisson regression with multiple imputation.R")
+source("overall/n5cm02_dm poisson regression with multiple imputation.R")
 
 
 rm(list=ls()); gc(); source(".Rprofile")
-source("sensitivity/n5cs02_dm poisson regression with multiple imputation.R")
+source("sensitivity/n5csensitivity01_dm and htn poisson regression with multiple imputation.R")
 
 # Paper ------
 

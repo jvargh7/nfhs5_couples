@@ -18,9 +18,11 @@ couples <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>
          htn_eligible = case_when(w_htn_eligible == 1 & h_htn_eligible ~ 1,
                                  TRUE ~ 0))   %>% 
   mutate(
-    # hh_lengthmar = apply(.[,c("h_lengthmar","w_lengthmar")],1,min,na.rm=TRUE) %>% as.numeric(.),
-    hh_children = apply(.[,c("h_nchildren","w_nchildren")],1,max,na.rm=TRUE) %>% as.numeric(.)
-  ) %>% 
+    hh_lengthmar = pmin(h_lengthmar,w_lengthmar,na.rm=TRUE),
+    hh_children = pmin(h_nchildren,w_nchildren,na.rm=TRUE)) %>% 
+  mutate(hh_lengthmar_ge10 = case_when(hh_lengthmar >= 10 ~ 1,
+                                       hh_lengthmar < 10 ~ 0,
+                                       TRUE ~ NA_real_)) %>% 
   
   mutate_at(vars(nmembers,w_nchildren,h_nchildren,w_weight,w_height,h_weight,h_height,
                  w_age,h_age),~as.numeric(.))  %>% 
@@ -38,7 +40,7 @@ couples <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>
 #   nrow()
 
 excluded <- couples %>% 
-  dplyr::filter(!(dm_eligible == 1 &htn_eligible == 1)) 
+  dplyr::filter(!(dm_eligible == 1 & htn_eligible == 1)) 
 
 
 couples <- couples %>% 

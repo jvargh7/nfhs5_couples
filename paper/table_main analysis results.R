@@ -1,8 +1,8 @@
 
-htn <- read_csv("models/n5cm01_htn poisson regression with multiple imputation.csv") %>% 
+htn <- read_csv("overall/n5cm01_htn poisson regression with multiple imputation.csv") %>% 
   dplyr::filter(model %in% c("W1","H1")) %>% 
   mutate(outcome = "Hypertension")
-dm <- read_csv("models/n5cm02_dm poisson regression with multiple imputation.csv") %>% 
+dm <- read_csv("overall/n5cm02_dm poisson regression with multiple imputation.csv") %>% 
   dplyr::filter(model %in% c("W1","H1")) %>% 
   mutate(outcome = "Diabetes")
 

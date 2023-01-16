@@ -1,18 +1,18 @@
-htn <- read_csv("models/n5cm01_htn contrasts for poisson regression with multiple imputation.csv") %>% 
+htn <- read_csv("overall/n5cm01_htn contrasts for poisson regression with multiple imputation.csv") %>% 
   mutate(outcome = "Hypertension")
-dm <- read_csv("models/n5cm02_dm contrasts for poisson regression with multiple imputation.csv") %>% 
+dm <- read_csv("overall/n5cm02_dm contrasts for poisson regression with multiple imputation.csv") %>% 
   mutate(outcome = "Diabetes")
 
-htn_main <- read_csv("models/n5cm01_htn poisson regression with multiple imputation.csv") %>% 
+htn_main <- read_csv("overall/n5cm01_htn poisson regression with multiple imputation.csv") %>% 
   dplyr::filter(model %in% c("W1","H1"),iv %in% c("w_htn","h_htn")) %>% 
   mutate(outcome = "Hypertension",
          label = "Overall")
-dm_main <- read_csv("models/n5cm02_dm poisson regression with multiple imputation.csv") %>% 
+dm_main <- read_csv("overall/n5cm02_dm poisson regression with multiple imputation.csv") %>% 
   dplyr::filter(model %in% c("W1","H1"),iv %in% c("w_dm","h_dm")) %>% 
   mutate(outcome = "Diabetes",
          label = "Overall")
 
-contrast_map <- readxl::read_excel("models/Contrast Map.xlsx") %>% 
+contrast_map <- readxl::read_excel("overall/Contrast Map.xlsx") %>% 
   dplyr::filter(!is.na(label))
 
 
@@ -43,7 +43,8 @@ tab_stratum <- bind_rows(htn_main,
                                        "Wealth: Highest",
                                        "Religion: Hindu",
                                        "Religion: Muslim",
-                                       "Religion: Other"),ordered=TRUE))
+                                       "Religion: Other"),ordered=TRUE)) %>% 
+  dplyr::filter(!str_detect(label,"Religion"))
 
 
 figA <- tab_stratum %>% dplyr::filter(outcome == "Diabetes") %>% 
@@ -94,3 +95,4 @@ ggarrange(figA,
   ggsave(.,
          width = 10,height=6,
          filename=paste0(path_couples_folder,"/figures/nfhs5 strata specific associations.png"))
+

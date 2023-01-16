@@ -1,13 +1,14 @@
-source("preprocessing/n5couples_analytic sample.R")
+source("preprocessing/n5cpre02_analytic sample.R")
 
 
 continuous_vars <- c(paste0(rep(c("w_","h_"),each=10),
-                            c("sbp","dbp","weight","height","glucose",
+                            c("sbp","dbp","weight",
+                              "height","glucose",
                               "bmi","waistcircumference","hipcircumference",
                               "age","eduyr")),
                      "nmembers","hh_children")
-# ,"hh_lengthmar"
-proportion_vars <- c(paste0(rep(c("w_","h_"),each=9),
+# ,"hh_lengthmar": Do not have data for most couples
+proportion_vars <- c(paste0(rep(c("w_","h_"),each=8),
                             c("diagnosed_bp","treated_bp",
                               "diagnosed_dm","treated_dm",
                               
