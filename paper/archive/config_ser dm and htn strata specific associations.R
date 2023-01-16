@@ -76,7 +76,8 @@ figB <- ggplot(data=fig_df %>% dplyr::filter(disease == "Hypertension"),
 
 ggarrange(figA,
           figB,
-          labels=LETTERS[1:2],
+          # labels=LETTERS[1:2],
+          labels=c("Diabetes","Hypertension"),
           nrow = 1,ncol=2,
           common.legend = TRUE,
           legend="bottom") %>% 
