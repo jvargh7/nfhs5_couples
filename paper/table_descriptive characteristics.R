@@ -1,8 +1,8 @@
 
 
 summary_table <- bind_rows(
-  read_csv("models/summary table of analytic sample.csv") %>% mutate(dataset = "Analytic"),
-  read_csv("models/summary table of excluded sample.csv") %>% mutate(dataset = "Excluded")) %>%
+  read_csv("overall/summary table of analytic sample.csv") %>% mutate(dataset = "Analytic"),
+  read_csv("overall/summary table of excluded sample.csv") %>% mutate(dataset = "Excluded")) %>%
   mutate(strata = case_when(str_detect(variable,"^h_") ~ "Husbands",
                             TRUE ~ "Wives"),
          variable = str_replace(variable,"^(h|w)_","")) %>% 

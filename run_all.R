@@ -25,7 +25,7 @@ rm(list=ls()); gc(); source(".Rprofile")
 source("paper/table_main analysis results.R")
 
 rm(list=ls()); gc(); source(".Rprofile")
-source("paper/table_spouse covariates results.R")
+source("paper/table_sensitivity results.R")
 
 rm(list=ls()); gc(); source(".Rprofile")
 source("paper/figure_stratum specific prevalence ratios.R")

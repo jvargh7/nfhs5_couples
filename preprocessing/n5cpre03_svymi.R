@@ -179,9 +179,7 @@ pred = mi_null$predictorMatrix
 pred[c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district"),] <- 0
 pred[,c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district")] <- 0
 
-# Do not impute and do not use for imputation ------
-pred[c("w_htn","h_htn","w_dm","h_dm"),] <-0
-pred[,c("w_htn","h_htn","w_dm","h_dm")] <-0
+
 
 # Impute via equation and do not use for imputation , --------
 
