@@ -32,6 +32,10 @@ for(i in 1:mi_dfs$m){
   overall_sh2dm[[i]] = svyglm(sh2dm,design=svy_des,family=gaussian());
   overall_sw2htn[[i]] = svyglm(sw2htn,design=svy_des,family=gaussian());
   overall_sh2htn[[i]] = svyglm(sh2htn,design=svy_des,family=gaussian());
+  overall_sw2bmi[[i]] = svyglm(sw2bmi,design=svy_des,family=gaussian());
+  overall_sh2bmi[[i]] = svyglm(sh2bmi,design=svy_des,family=gaussian());
+  
+  
  
   gc();rm(df);rm(svy_des)
   
@@ -51,6 +55,8 @@ overall_sw2dm_out = mice_coef_svyglm(overall_sw2dm,link = "svyglm gaussian")
 overall_sh2dm_out = mice_coef_svyglm(overall_sh2dm,link = "svyglm gaussian")
 overall_sw2htn_out = mice_coef_svyglm(overall_sw2htn,link = "svyglm gaussian")
 overall_sh2htn_out = mice_coef_svyglm(overall_sh2htn,link = "svyglm gaussian")
+overall_sw2bmi_out = mice_coef_svyglm(overall_sw2bmi,link = "svyglm gaussian")
+overall_sh2bmi_out = mice_coef_svyglm(overall_sh2bmi,link = "svyglm gaussian")
 
 bind_rows(
   overall_sw1dm_out %>% mutate(model = "SW1",outcome = "Diabetes"),
@@ -60,7 +66,9 @@ bind_rows(
   overall_sw2dm_out %>% mutate(model = "SW2",outcome = "Glucose"),
   overall_sh2dm_out %>% mutate(model = "SH2",outcome = "Glucose"),
   overall_sw2htn_out %>% mutate(model = "SW2",outcome = "SBP"),
-  overall_sh2htn_out %>% mutate(model = "SH2",outcome = "SBP")
+  overall_sh2htn_out %>% mutate(model = "SH2",outcome = "SBP"),
+  overall_sw2bmi_out %>% mutate(model = "SW2",outcome = "BMI"),
+  overall_sh2bmi_out %>% mutate(model = "SH2",outcome = "BMI")
   
 ) %>% 
   write_csv(.,"sensitivity/n5csensitivity01_poisson regression with multiple imputation.csv")

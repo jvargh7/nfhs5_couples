@@ -1,3 +1,4 @@
+rm(list=ls());gc();source(".Rprofile"); 
 mi_dfs <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples_mi_dfs.RDS"))
 
 require(mice)
@@ -29,7 +30,8 @@ for(i in 1:mi_dfs$m){
   overall_h4[[i]] = svyglm(h4,design=svy_des,family=quasipoisson());
   overall_w5[[i]] = svyglm(w5,design=svy_des,family=quasipoisson());
   overall_h5[[i]] = svyglm(h5,design=svy_des,family=quasipoisson());
-  
+  overall_w6[[i]] = svyglm(w6,design=svy_des,family=quasipoisson());
+  overall_h6[[i]] = svyglm(h6,design=svy_des,family=quasipoisson());
   
   gc();rm(df);rm(svy_des)
 }
@@ -50,6 +52,8 @@ overall_w4_out = mice_coef_svyglm(overall_w4)
 overall_h4_out = mice_coef_svyglm(overall_h4)
 overall_w5_out = mice_coef_svyglm(overall_w5)
 overall_h5_out = mice_coef_svyglm(overall_h5)
+overall_w6_out = mice_coef_svyglm(overall_w6)
+overall_h6_out = mice_coef_svyglm(overall_h6)
 
 
 bind_rows(
@@ -62,7 +66,9 @@ bind_rows(
   overall_w4_out %>% mutate(model = "W4"),
   overall_h4_out %>% mutate(model = "H4"),
   overall_w5_out %>% mutate(model = "W5"),
-  overall_h5_out %>% mutate(model = "H5")
+  overall_h5_out %>% mutate(model = "H5"),
+  overall_w6_out %>% mutate(model = "W6"),
+  overall_h6_out %>% mutate(model = "H6")
   
 ) %>% 
   write_csv(.,"overall/n5cm02_dm poisson regression with multiple imputation.csv")
@@ -102,6 +108,15 @@ contrasts_h5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifie
 contrasts_w5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_highest",exposure = "h_dm")
 contrasts_h5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_highest",exposure="w_dm")
 
+contrasts_w6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_general",exposure = "h_dm")
+contrasts_h6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_general",exposure="w_dm")
+
+contrasts_w6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_obc",exposure = "h_dm")
+contrasts_h6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_obc",exposure="w_dm")
+
+contrasts_w6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_scst",exposure = "h_dm")
+contrasts_h6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_scst",exposure="w_dm")
+
 
 
 bind_rows(
@@ -127,7 +142,14 @@ bind_rows(
   contrasts_h5_out_wlt4 %>% mutate(model = "H5 High"),
   
   contrasts_w5_out_wlt5 %>% mutate(model = "W5 Highest"),
-  contrasts_h5_out_wlt5 %>% mutate(model = "H5 Highest")
+  contrasts_h5_out_wlt5 %>% mutate(model = "H5 Highest"),
+  
+  contrasts_w6_out_gen %>% mutate(model = "W6 General"),
+  contrasts_h6_out_gen %>% mutate(model = "H6 General"),
+  contrasts_w6_out_obc %>% mutate(model = "W6 OBC"),
+  contrasts_h6_out_obc %>% mutate(model = "H6 OBC"),
+  contrasts_w6_out_scst %>% mutate(model = "W6 SCST"),
+  contrasts_h6_out_scst %>% mutate(model = "H6 SCST")
   
 ) %>% 
   write_csv(.,"overall/n5cm02_dm contrasts for poisson regression with multiple imputation.csv")

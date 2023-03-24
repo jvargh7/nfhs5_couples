@@ -4,7 +4,7 @@ group_vars = ""
 require(srvyr)
 source("C:/code/external/functions/survey/svysummary.R")
 
-source("preprocessing/n5couples_analytic sample.R")
+source("preprocessing/n5cpre02_analytic sample.R")
 
 couples_svydesign = couples  %>% 
   # Need to impute and correct

@@ -1,4 +1,4 @@
-state_joint <- read_csv(file = "models/n5cm04_state summary of joint prevalence.csv")
+state_joint <- read_csv(file = "overall/n5cm04_state summary of joint prevalence.csv")
 
 source("C:/code/external/nfhs_cascade/functions/state_map.R")
 

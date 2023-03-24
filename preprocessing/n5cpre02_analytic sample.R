@@ -1,4 +1,4 @@
-couples <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>% 
+couples_pre <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>% 
   dplyr::filter(w_age >= 18, h_age >= 21) %>% 
   mutate(w_htn_eligible = case_when(w_diagnosed_bp == 1 ~ 1,
                                 !is.na(w_sbp) & !is.na(w_dbp) ~ 1,
@@ -32,18 +32,23 @@ couples <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")) %>
          htn_joint = case_when(w_htn == 1 & h_htn == 1 ~ 1,
                                w_htn == 0 | h_htn == 0 ~ 0,
                                TRUE ~ NA_real_)
-  )
+  ) %>% 
+  mutate(caste_group = case_when(h_caste == "General" & w_caste == "General" ~ 2,
+                                 h_caste == "OBC" & w_caste == "OBC" ~ 3,
+                                 h_caste == "Schedule Caste" & w_caste == "Schedule Caste" ~ 4,
+                                 h_caste == "Schedule Tribe" & w_caste == "Schedule Tribe" ~ 4,
+                                 TRUE ~ 1))
 
 
 # couples %>% 
 #   distinct(cluster,hhid) %>% 
 #   nrow()
 
-excluded <- couples %>% 
+excluded <- couples_pre %>% 
   dplyr::filter(!(dm_eligible == 1 & htn_eligible == 1)) 
 
 
-couples <- couples %>% 
+couples <- couples_pre %>% 
   dplyr::filter(dm_eligible == 1, htn_eligible == 1)
 
 # couples %>% 

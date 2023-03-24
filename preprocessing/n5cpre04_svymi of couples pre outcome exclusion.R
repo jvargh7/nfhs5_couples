@@ -1,4 +1,3 @@
-rm(list=ls());gc();source(".Rprofile"); 
 source("preprocessing/n5cpre02_analytic sample.R")
 
 
@@ -16,12 +15,12 @@ proportion_vars <- c(paste0(rep(c("w_","h_"),each=8),
                               "tobacco_any","alcohol",
                               "dm","htn")),"rural")
 
-grouped_vars <- c("w_education","h_education","w_caste","h_caste","caste_hh","religion","wealthq","swealthq_ur")
+grouped_vars <- c("w_education","h_education","caste","religion","wealthq","swealthq_ur")
 
 require(survey)
 require(mice)
 
-before_imputation <- couples %>% 
+before_imputation <- couples_pre %>% 
   dplyr::select(cluster,hhid,linenumber,spouse_id,
                 strata,state,psu,sampleweight,
                 interview,phase,district,
@@ -71,16 +70,7 @@ before_imputation <- couples %>%
     religion_muslim = case_when(religion == "Muslim" ~ 1,
                                 TRUE ~ 0),
     religion_other = case_when(religion == "Other" ~ 1,
-                               TRUE ~ 0),
-    
-    both_general = case_when(h_caste == "General" & w_caste == "General" ~ 1,
-                             TRUE ~ 0),
-    
-    both_obc = case_when(h_caste == "OBC" & w_caste == "OBC" ~ 1,
-                         TRUE ~ 0),
-    both_scst = case_when(h_caste == "Schedule Caste" & w_caste == "Schedule Caste" ~ 1,
-                          h_caste == "Schedule Tribe" & w_caste == "Schedule Tribe" ~ 1,
-                         TRUE ~ 0),
+                               TRUE ~ 0)
     
     
   ) %>% 
@@ -119,17 +109,7 @@ before_imputation <- couples %>%
          h_htn_religion_muslim = h_htn*religion_muslim,
          w_htn_religion_muslim = w_htn*religion_muslim,
          h_htn_religion_other = h_htn*religion_other,
-         w_htn_religion_other = w_htn*religion_other,
-         
-         w_htn_both_general = w_htn*both_general,
-         w_htn_both_obc = w_htn*both_obc,
-         w_htn_both_scst = w_htn*both_scst,
-         
-         h_htn_both_general = h_htn*both_general,
-         h_htn_both_obc = h_htn*both_obc,
-         h_htn_both_scst = h_htn*both_scst
-         
-         
+         w_htn_religion_other = w_htn*religion_other
   ) %>% 
   mutate(w_dm_rural = rural*w_dm,
          h_dm_rural = rural*h_dm,
@@ -165,17 +145,7 @@ before_imputation <- couples %>%
          h_dm_religion_muslim = h_dm*religion_muslim,
          w_dm_religion_muslim = w_dm*religion_muslim,
          h_dm_religion_other = h_dm*religion_other,
-         w_dm_religion_other = w_dm*religion_other,
-         
-         
-         w_dm_both_general = w_dm*both_general,
-         w_dm_both_obc = w_dm*both_obc,
-         w_dm_both_scst = w_dm*both_scst,
-         
-         h_dm_both_general = h_dm*both_general,
-         h_dm_both_obc = h_dm*both_obc,
-         h_dm_both_scst = h_dm*both_scst
-         
+         w_dm_religion_other = w_dm*religion_other
   ) %>% 
   dplyr::select(-w_education,-h_education,-religion,
                 -wealthq)
@@ -189,8 +159,6 @@ interaction_terms <- c("w_htn_rural","h_htn_rural",
                        "h_htn_hh_low","h_htn_hh_medium","h_htn_hh_high","h_htn_hh_highest",
                        "w_htn_religion_muslim","w_htn_religion_other",
                        "h_htn_religion_muslim","h_htn_religion_other",
-                       "w_htn_both_general","w_htn_both_obc","w_htn_both_scst",
-                       "h_htn_both_general","h_htn_both_obc","h_htn_both_scst",
                        
                        
                        "w_dm_rural","h_dm_rural",
@@ -200,10 +168,7 @@ interaction_terms <- c("w_htn_rural","h_htn_rural",
                        "w_dm_hh_low","w_dm_hh_medium","w_dm_hh_high","w_dm_hh_highest",
                        "h_dm_hh_low","h_dm_hh_medium","h_dm_hh_high","h_dm_hh_highest",
                        "w_dm_religion_muslim","w_dm_religion_other",
-                       "h_dm_religion_muslim","h_dm_religion_other",
-                       "w_dm_both_general","w_dm_both_obc","w_dm_both_scst",
-                       "h_dm_both_general","h_dm_both_obc","h_dm_both_scst"
-                       )
+                       "h_dm_religion_muslim","h_dm_religion_other")
 
 mi_null <- mice(before_imputation,
                 maxit = 0)
@@ -213,7 +178,7 @@ pred = mi_null$predictorMatrix
 
 pred[c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district"),] <- 0
 pred[,c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district")] <- 0
-
+method[c("cluster","hhid","linenumber","spouse_id","strata","state","psu","sampleweight", "interview","phase","district")] <- ""
 
 
 # Impute via equation and do not use for imputation , --------
@@ -226,12 +191,12 @@ pred[,c("w_ge40","h_ge40")] <- 0
 
 for(i_t in interaction_terms){
   print(i_t)
-  exposure_term = str_extract(i_t,"^(w|h)_(htn|dm)")
-  em_term = str_replace(i_t,pattern=paste0(exposure_term,"_"),replacement = "")
-  method[i_t] = paste0("~I(",exposure_term,"*",em_term,")")
+  outcome_term = str_extract(i_t,"^(w|h)_(htn|dm)")
+  em_term = str_replace(i_t,pattern=paste0(outcome_term,"_"),replacement = "")
+  method[i_t] = paste0("~I(",outcome_term,"*",em_term,")")
   
   # Do not use interaction terms for imputation of the source variables
-  pred[c(exposure_term,em_term),i_t] <- 0
+  pred[c(outcome_term,em_term),i_t] <- 0
 }
 
 # Takes ~4h
@@ -240,4 +205,4 @@ mi_dfs <- mice(before_imputation,
                pred = pred,
                m=10,maxit=50,seed=500)
 
-saveRDS(mi_dfs, paste0(path_couples_folder,"/working/nfhs5c couples_mi_dfs.RDS"))
+saveRDS(mi_dfs, paste0(path_couples_folder,"/working/nfhs5c couples pre exclusion_mi_dfs.RDS"))

@@ -1,169 +1,169 @@
 state,variable,estimate,lci,uci,type,est_ci,n,stratification,n5_state,zone
 1,w_dm,6.6,4.9,8.2,Proportion,"6.6 (4.9, 8.2)",1383,,Jammu & Kashmir,North
 1,w_htn,23.1,19.6,26.6,Proportion,"23.1 (19.6, 26.6)",1383,,Jammu & Kashmir,North
-1,h_dm,5.7,3.9,7.4,Proportion,"5.7 (3.9, 7.4)",1383,,Jammu & Kashmir,North
+1,h_dm,5.6,3.8,7.4,Proportion,"5.6 (3.8, 7.4)",1383,,Jammu & Kashmir,North
 1,h_htn,24.2,20.8,27.6,Proportion,"24.2 (20.8, 27.6)",1383,,Jammu & Kashmir,North
 1,dm_joint,1,0.1,1.9,Proportion,"1 (0.1, 1.9)",1383,,Jammu & Kashmir,North
 1,htn_joint,8.7,6.5,11,Proportion,"8.7 (6.5, 11)",1383,,Jammu & Kashmir,North
-2,w_dm,3.7,1.6,5.9,Proportion,"3.7 (1.6, 5.9)",742,,Himachal Pradesh,North
+2,w_dm,3.6,1.5,5.7,Proportion,"3.6 (1.5, 5.7)",742,,Himachal Pradesh,North
 2,w_htn,20.8,16.9,24.7,Proportion,"20.8 (16.9, 24.7)",742,,Himachal Pradesh,North
-2,h_dm,4,2.4,5.6,Proportion,"4 (2.4, 5.6)",742,,Himachal Pradesh,North
+2,h_dm,3.7,2.2,5.2,Proportion,"3.7 (2.2, 5.2)",742,,Himachal Pradesh,North
 2,h_htn,29.8,25.1,34.4,Proportion,"29.8 (25.1, 34.4)",742,,Himachal Pradesh,North
-2,dm_joint,0.3,-0,0.7,Proportion,"0.3 (0, 0.7)",742,,Himachal Pradesh,North
+2,dm_joint,0.2,-0.1,0.5,Proportion,"0.2 (-0.1, 0.5)",742,,Himachal Pradesh,North
 2,htn_joint,9.6,6.8,12.5,Proportion,"9.6 (6.8, 12.5)",742,,Himachal Pradesh,North
-3,w_dm,4,2.8,5.2,Proportion,"4 (2.8, 5.2)",1425,,Punjab,North
+3,w_dm,3.8,2.6,5,Proportion,"3.8 (2.6, 5)",1425,,Punjab,North
 3,w_htn,38,34.4,41.7,Proportion,"38 (34.4, 41.7)",1425,,Punjab,North
-3,h_dm,6.5,4.9,8.2,Proportion,"6.5 (4.9, 8.2)",1425,,Punjab,North
+3,h_dm,6,4.3,7.6,Proportion,"6 (4.3, 7.6)",1425,,Punjab,North
 3,h_htn,49.5,46,52.9,Proportion,"49.5 (46, 52.9)",1425,,Punjab,North
-3,dm_joint,0.7,0.2,1.2,Proportion,"0.7 (0.2, 1.2)",1425,,Punjab,North
+3,dm_joint,0.7,0.2,1.1,Proportion,"0.7 (0.2, 1.1)",1425,,Punjab,North
 3,htn_joint,21.5,18.4,24.7,Proportion,"21.5 (18.4, 24.7)",1425,,Punjab,North
 4,w_dm,8.8,0.3,17.3,Proportion,"8.8 (0.3, 17.3)",45,,Chandigarh,North
 4,w_htn,28.2,14.2,42.2,Proportion,"28.2 (14.2, 42.2)",45,,Chandigarh,North
-4,h_dm,9.8,-1.1,20.7,Proportion,"9.8 (-1.1, 20.7)",45,,Chandigarh,North
+4,h_dm,7.5,0.1,14.8,Proportion,"7.5 (0.1, 14.8)",45,,Chandigarh,North
 4,h_htn,38.8,24.4,53.2,Proportion,"38.8 (24.4, 53.2)",45,,Chandigarh,North
 4,dm_joint,2.4,-2.5,7.3,Proportion,"2.4 (-2.5, 7.3)",45,,Chandigarh,North
 4,htn_joint,9.5,1.4,17.5,Proportion,"9.5 (1.4, 17.5)",45,,Chandigarh,North
 5,w_dm,3.6,1.6,5.6,Proportion,"3.6 (1.6, 5.6)",669,,Uttarakhand,Central
 5,w_htn,25.9,21.5,30.3,Proportion,"25.9 (21.5, 30.3)",669,,Uttarakhand,Central
-5,h_dm,7.7,4.5,10.9,Proportion,"7.7 (4.5, 10.9)",669,,Uttarakhand,Central
+5,h_dm,6.9,3.8,10,Proportion,"6.9 (3.8, 10)",669,,Uttarakhand,Central
 5,h_htn,41.7,37,46.3,Proportion,"41.7 (37, 46.3)",669,,Uttarakhand,Central
 5,dm_joint,1.6,0.2,3,Proportion,"1.6 (0.2, 3)",669,,Uttarakhand,Central
 5,htn_joint,12.6,8.6,16.5,Proportion,"12.6 (8.6, 16.5)",669,,Uttarakhand,Central
-6,w_dm,4.6,3.2,6,Proportion,"4.6 (3.2, 6)",1391,,Haryana,North
+6,w_dm,4.5,3.1,5.9,Proportion,"4.5 (3.1, 5.9)",1391,,Haryana,North
 6,w_htn,27.7,24.4,30.9,Proportion,"27.7 (24.4, 30.9)",1391,,Haryana,North
-6,h_dm,6.8,5.3,8.3,Proportion,"6.8 (5.3, 8.3)",1391,,Haryana,North
+6,h_dm,6.3,4.8,7.8,Proportion,"6.3 (4.8, 7.8)",1391,,Haryana,North
 6,h_htn,31.8,28.7,34.8,Proportion,"31.8 (28.7, 34.8)",1391,,Haryana,North
-6,dm_joint,1.2,0.4,2,Proportion,"1.2 (0.4, 2)",1391,,Haryana,North
+6,dm_joint,1,0.3,1.8,Proportion,"1 (0.3, 1.8)",1391,,Haryana,North
 6,htn_joint,11,8.8,13.1,Proportion,"11 (8.8, 13.1)",1391,,Haryana,North
-7,w_dm,3.1,1.7,4.5,Proportion,"3.1 (1.7, 4.5)",661,,Nct Of Delhi,North
+7,w_dm,3,1.6,4.3,Proportion,"3 (1.6, 4.3)",661,,Nct Of Delhi,North
 7,w_htn,23.8,20.1,27.5,Proportion,"23.8 (20.1, 27.5)",661,,Nct Of Delhi,North
-7,h_dm,13,9.4,16.7,Proportion,"13 (9.4, 16.7)",661,,Nct Of Delhi,North
+7,h_dm,12.3,8.7,15.9,Proportion,"12.3 (8.7, 15.9)",661,,Nct Of Delhi,North
 7,h_htn,46.7,41.8,51.6,Proportion,"46.7 (41.8, 51.6)",661,,Nct Of Delhi,North
-7,dm_joint,0.7,0.1,1.4,Proportion,"0.7 (0.1, 1.4)",661,,Nct Of Delhi,North
+7,dm_joint,0.6,0,1.2,Proportion,"0.6 (0, 1.2)",661,,Nct Of Delhi,North
 7,htn_joint,12.8,10.2,15.4,Proportion,"12.8 (10.2, 15.4)",661,,Nct Of Delhi,North
-8,w_dm,2.3,1.7,3,Proportion,"2.3 (1.7, 3)",3264,,Rajasthan,North
+8,w_dm,2.3,1.6,2.9,Proportion,"2.3 (1.6, 2.9)",3264,,Rajasthan,North
 8,w_htn,16.8,15,18.5,Proportion,"16.8 (15, 18.5)",3264,,Rajasthan,North
-8,h_dm,3.8,3,4.7,Proportion,"3.8 (3, 4.7)",3264,,Rajasthan,North
+8,h_dm,3.7,2.9,4.6,Proportion,"3.7 (2.9, 4.6)",3264,,Rajasthan,North
 8,h_htn,23.1,21,25.1,Proportion,"23.1 (21, 25.1)",3264,,Rajasthan,North
-8,dm_joint,0.5,0.2,0.7,Proportion,"0.5 (0.2, 0.7)",3264,,Rajasthan,North
+8,dm_joint,0.4,0.1,0.6,Proportion,"0.4 (0.1, 0.6)",3264,,Rajasthan,North
 8,htn_joint,6.7,5.5,7.9,Proportion,"6.7 (5.5, 7.9)",3264,,Rajasthan,North
-9,w_dm,4.3,3.5,5.1,Proportion,"4.3 (3.5, 5.1)",5377,,Uttar Pradesh,Central
+9,w_dm,4,3.2,4.8,Proportion,"4 (3.2, 4.8)",5377,,Uttar Pradesh,Central
 9,w_htn,24,22.6,25.5,Proportion,"24 (22.6, 25.5)",5377,,Uttar Pradesh,Central
-9,h_dm,5.5,4.7,6.2,Proportion,"5.5 (4.7, 6.2)",5377,,Uttar Pradesh,Central
+9,h_dm,5.1,4.3,5.9,Proportion,"5.1 (4.3, 5.9)",5377,,Uttar Pradesh,Central
 9,h_htn,29.1,27.5,30.7,Proportion,"29.1 (27.5, 30.7)",5377,,Uttar Pradesh,Central
 9,dm_joint,0.8,0.5,1.2,Proportion,"0.8 (0.5, 1.2)",5377,,Uttar Pradesh,Central
 9,htn_joint,9.4,8.4,10.5,Proportion,"9.4 (8.4, 10.5)",5377,,Uttar Pradesh,Central
-10,w_dm,4.1,3,5.2,Proportion,"4.1 (3, 5.2)",2211,,Bihar,East
+10,w_dm,3.7,2.7,4.7,Proportion,"3.7 (2.7, 4.7)",2211,,Bihar,East
 10,w_htn,21.7,19.1,24.3,Proportion,"21.7 (19.1, 24.3)",2211,,Bihar,East
-10,h_dm,6.9,5.6,8.3,Proportion,"6.9 (5.6, 8.3)",2211,,Bihar,East
+10,h_dm,6.5,5.2,7.8,Proportion,"6.5 (5.2, 7.8)",2211,,Bihar,East
 10,h_htn,26.5,23.7,29.4,Proportion,"26.5 (23.7, 29.4)",2211,,Bihar,East
-10,dm_joint,0.8,0.4,1.3,Proportion,"0.8 (0.4, 1.3)",2211,,Bihar,East
+10,dm_joint,0.8,0.3,1.2,Proportion,"0.8 (0.3, 1.2)",2211,,Bihar,East
 10,htn_joint,9.6,7.6,11.6,Proportion,"9.6 (7.6, 11.6)",2211,,Bihar,East
-11,w_dm,7.1,1.5,12.7,Proportion,"7.1 (1.5, 12.7)",206,,Sikkim,North East
+11,w_dm,7,1.4,12.6,Proportion,"7 (1.4, 12.6)",206,,Sikkim,North East
 11,w_htn,38.1,28.8,47.3,Proportion,"38.1 (28.8, 47.3)",206,,Sikkim,North East
-11,h_dm,8.2,3.5,13,Proportion,"8.2 (3.5, 13)",206,,Sikkim,North East
+11,h_dm,7.1,2.5,11.7,Proportion,"7.1 (2.5, 11.7)",206,,Sikkim,North East
 11,h_htn,53.8,41.9,65.8,Proportion,"53.8 (41.9, 65.8)",206,,Sikkim,North East
 11,dm_joint,0.5,-0.4,1.4,Proportion,"0.5 (-0.4, 1.4)",206,,Sikkim,North East
 11,htn_joint,24.2,15.5,32.9,Proportion,"24.2 (15.5, 32.9)",206,,Sikkim,North East
-12,w_dm,4,2.8,5.1,Proportion,"4 (2.8, 5.1)",1454,,Arunachal Pradesh,North East
+12,w_dm,3.8,2.7,5,Proportion,"3.8 (2.7, 5)",1454,,Arunachal Pradesh,North East
 12,w_htn,30.2,26.9,33.5,Proportion,"30.2 (26.9, 33.5)",1454,,Arunachal Pradesh,North East
-12,h_dm,7.6,5.7,9.4,Proportion,"7.6 (5.7, 9.4)",1454,,Arunachal Pradesh,North East
+12,h_dm,7,5.1,8.8,Proportion,"7 (5.1, 8.8)",1454,,Arunachal Pradesh,North East
 12,h_htn,41.7,37.9,45.5,Proportion,"41.7 (37.9, 45.5)",1454,,Arunachal Pradesh,North East
 12,dm_joint,0.8,0.3,1.3,Proportion,"0.8 (0.3, 1.3)",1454,,Arunachal Pradesh,North East
 12,htn_joint,16.3,13.5,19.1,Proportion,"16.3 (13.5, 19.1)",1454,,Arunachal Pradesh,North East
-13,w_dm,2.7,1.1,4.4,Proportion,"2.7 (1.1, 4.4)",644,,Nagaland,North East
+13,w_dm,2.2,0.7,3.8,Proportion,"2.2 (0.7, 3.8)",644,,Nagaland,North East
 13,w_htn,27.8,22.7,33,Proportion,"27.8 (22.7, 33)",644,,Nagaland,North East
-13,h_dm,4.4,2.1,6.8,Proportion,"4.4 (2.1, 6.8)",644,,Nagaland,North East
+13,h_dm,4.3,2,6.6,Proportion,"4.3 (2, 6.6)",644,,Nagaland,North East
 13,h_htn,35.2,30,40.4,Proportion,"35.2 (30, 40.4)",644,,Nagaland,North East
 13,dm_joint,0.3,-0.1,0.7,Proportion,"0.3 (-0.1, 0.7)",644,,Nagaland,North East
 13,htn_joint,10.9,7.6,14.2,Proportion,"10.9 (7.6, 14.2)",644,,Nagaland,North East
-14,w_dm,2.7,0.9,4.4,Proportion,"2.7 (0.9, 4.4)",564,,Manipur,North East
+14,w_dm,2.3,0.7,4,Proportion,"2.3 (0.7, 4)",564,,Manipur,North East
 14,w_htn,24.9,21.2,28.7,Proportion,"24.9 (21.2, 28.7)",564,,Manipur,North East
 14,h_dm,5.8,3.7,8,Proportion,"5.8 (3.7, 8)",564,,Manipur,North East
 14,h_htn,44.7,38.9,50.5,Proportion,"44.7 (38.9, 50.5)",564,,Manipur,North East
-14,dm_joint,0.4,-0.3,1,Proportion,"0.4 (-0.3, 1)",564,,Manipur,North East
+14,dm_joint,0,0,0,Proportion,"0 (0, 0)",564,,Manipur,North East
 14,htn_joint,13.1,9.2,17.1,Proportion,"13.1 (9.2, 17.1)",564,,Manipur,North East
-15,w_dm,4.7,2.3,7.1,Proportion,"4.7 (2.3, 7.1)",519,,Mizoram,North East
+15,w_dm,4.6,2.2,6.9,Proportion,"4.6 (2.2, 6.9)",519,,Mizoram,North East
 15,w_htn,18.4,13.6,23.2,Proportion,"18.4 (13.6, 23.2)",519,,Mizoram,North East
-15,h_dm,5.7,2.6,8.7,Proportion,"5.7 (2.6, 8.7)",519,,Mizoram,North East
+15,h_dm,5.2,2.2,8.2,Proportion,"5.2 (2.2, 8.2)",519,,Mizoram,North East
 15,h_htn,27.5,20.8,34.3,Proportion,"27.5 (20.8, 34.3)",519,,Mizoram,North East
-15,dm_joint,0.3,-0.1,0.7,Proportion,"0.3 (-0.1, 0.7)",519,,Mizoram,North East
+15,dm_joint,0.1,-0.1,0.3,Proportion,"0.1 (-0.1, 0.3)",519,,Mizoram,North East
 15,htn_joint,5.1,2.5,7.7,Proportion,"5.1 (2.5, 7.7)",519,,Mizoram,North East
 16,w_dm,4.2,1.7,6.8,Proportion,"4.2 (1.7, 6.8)",603,,Tripura,North East
 16,w_htn,22.5,18.9,26.2,Proportion,"22.5 (18.9, 26.2)",603,,Tripura,North East
-16,h_dm,9.9,5.2,14.6,Proportion,"9.9 (5.2, 14.6)",603,,Tripura,North East
+16,h_dm,8.4,4.6,12.1,Proportion,"8.4 (4.6, 12.1)",603,,Tripura,North East
 16,h_htn,28.9,23.7,34,Proportion,"28.9 (23.7, 34)",603,,Tripura,North East
-16,dm_joint,0.5,-0.1,1.1,Proportion,"0.5 (-0.1, 1.1)",603,,Tripura,North East
+16,dm_joint,0.4,-0.2,0.9,Proportion,"0.4 (-0.2, 0.9)",603,,Tripura,North East
 16,htn_joint,9,5.9,12.1,Proportion,"9 (5.9, 12.1)",603,,Tripura,North East
-17,w_dm,4.5,1.7,7.3,Proportion,"4.5 (1.7, 7.3)",919,,Meghalaya,North East
+17,w_dm,4.2,1.4,6.9,Proportion,"4.2 (1.4, 6.9)",919,,Meghalaya,North East
 17,w_htn,21,15.7,26.3,Proportion,"21 (15.7, 26.3)",919,,Meghalaya,North East
-17,h_dm,3.8,1,6.6,Proportion,"3.8 (1, 6.6)",919,,Meghalaya,North East
+17,h_dm,2.8,1.2,4.4,Proportion,"2.8 (1.2, 4.4)",919,,Meghalaya,North East
 17,h_htn,28.9,22.3,35.6,Proportion,"28.9 (22.3, 35.6)",919,,Meghalaya,North East
-17,dm_joint,1,-0.4,2.4,Proportion,"1 (-0.4, 2.4)",919,,Meghalaya,North East
+17,dm_joint,0.3,-0.1,0.6,Proportion,"0.3 (-0.1, 0.6)",919,,Meghalaya,North East
 17,htn_joint,8.6,4.8,12.5,Proportion,"8.6 (4.8, 12.5)",919,,Meghalaya,North East
-18,w_dm,4.6,3.6,5.6,Proportion,"4.6 (3.6, 5.6)",2718,,Assam,North East
+18,w_dm,4.4,3.4,5.4,Proportion,"4.4 (3.4, 5.4)",2718,,Assam,North East
 18,w_htn,19,17.1,20.8,Proportion,"19 (17.1, 20.8)",2718,,Assam,North East
-18,h_dm,6.3,5.1,7.4,Proportion,"6.3 (5.1, 7.4)",2718,,Assam,North East
+18,h_dm,5.8,4.7,6.9,Proportion,"5.8 (4.7, 6.9)",2718,,Assam,North East
 18,h_htn,26.5,24.4,28.6,Proportion,"26.5 (24.4, 28.6)",2718,,Assam,North East
 18,dm_joint,0.4,0.1,0.7,Proportion,"0.4 (0.1, 0.7)",2718,,Assam,North East
 18,htn_joint,7,5.9,8.2,Proportion,"7 (5.9, 8.2)",2718,,Assam,North East
-19,w_dm,4.8,3.7,6,Proportion,"4.8 (3.7, 6)",1669,,West Bengal,East
+19,w_dm,4.3,3.2,5.4,Proportion,"4.3 (3.2, 5.4)",1669,,West Bengal,East
 19,w_htn,18.4,16.1,20.8,Proportion,"18.4 (16.1, 20.8)",1669,,West Bengal,East
-19,h_dm,8.6,7,10.1,Proportion,"8.6 (7, 10.1)",1669,,West Bengal,East
+19,h_dm,7.8,6.3,9.3,Proportion,"7.8 (6.3, 9.3)",1669,,West Bengal,East
 19,h_htn,22.8,20.2,25.3,Proportion,"22.8 (20.2, 25.3)",1669,,West Bengal,East
-19,dm_joint,0.3,0,0.6,Proportion,"0.3 (0, 0.6)",1669,,West Bengal,East
+19,dm_joint,0.3,0,0.5,Proportion,"0.3 (0, 0.5)",1669,,West Bengal,East
 19,htn_joint,6,4.4,7.6,Proportion,"6 (4.4, 7.6)",1669,,West Bengal,East
-20,w_dm,4.7,3.2,6.1,Proportion,"4.7 (3.2, 6.1)",1714,,Jharkhand,East
+20,w_dm,4.4,2.9,5.9,Proportion,"4.4 (2.9, 5.9)",1714,,Jharkhand,East
 20,w_htn,19.8,16.8,22.9,Proportion,"19.8 (16.8, 22.9)",1714,,Jharkhand,East
-20,h_dm,7.4,5.7,9.1,Proportion,"7.4 (5.7, 9.1)",1714,,Jharkhand,East
+20,h_dm,7,5.4,8.7,Proportion,"7 (5.4, 8.7)",1714,,Jharkhand,East
 20,h_htn,29,26.3,31.6,Proportion,"29 (26.3, 31.6)",1714,,Jharkhand,East
-20,dm_joint,1.9,0.9,3,Proportion,"1.9 (0.9, 3)",1714,,Jharkhand,East
+20,dm_joint,1.9,0.8,2.9,Proportion,"1.9 (0.8, 2.9)",1714,,Jharkhand,East
 20,htn_joint,9,6.8,11.2,Proportion,"9 (6.8, 11.2)",1714,,Jharkhand,East
-21,w_dm,4.6,3.5,5.7,Proportion,"4.6 (3.5, 5.7)",2129,,Odisha,East
+21,w_dm,4.1,3,5.2,Proportion,"4.1 (3, 5.2)",2129,,Odisha,East
 21,w_htn,23,20.7,25.3,Proportion,"23 (20.7, 25.3)",2129,,Odisha,East
-21,h_dm,8.9,7.4,10.4,Proportion,"8.9 (7.4, 10.4)",2129,,Odisha,East
+21,h_dm,8.2,6.7,9.7,Proportion,"8.2 (6.7, 9.7)",2129,,Odisha,East
 21,h_htn,30.9,28.3,33.4,Proportion,"30.9 (28.3, 33.4)",2129,,Odisha,East
-21,dm_joint,1.2,0.5,1.8,Proportion,"1.2 (0.5, 1.8)",2129,,Odisha,East
+21,dm_joint,1,0.4,1.6,Proportion,"1 (0.4, 1.6)",2129,,Odisha,East
 21,htn_joint,8.8,7.2,10.3,Proportion,"8.8 (7.2, 10.3)",2129,,Odisha,East
-22,w_dm,3.1,2.1,4,Proportion,"3.1 (2.1, 4)",2150,,Chhattisgarh,Central
+22,w_dm,2.9,2,3.9,Proportion,"2.9 (2, 3.9)",2150,,Chhattisgarh,Central
 22,w_htn,22.3,20.1,24.5,Proportion,"22.3 (20.1, 24.5)",2150,,Chhattisgarh,Central
-22,h_dm,6.2,4.8,7.6,Proportion,"6.2 (4.8, 7.6)",2150,,Chhattisgarh,Central
+22,h_dm,5.7,4.4,7.1,Proportion,"5.7 (4.4, 7.1)",2150,,Chhattisgarh,Central
 22,h_htn,33.2,30.6,35.8,Proportion,"33.2 (30.6, 35.8)",2150,,Chhattisgarh,Central
 22,dm_joint,0.7,0.2,1.2,Proportion,"0.7 (0.2, 1.2)",2150,,Chhattisgarh,Central
 22,htn_joint,9.3,7.5,11.1,Proportion,"9.3 (7.5, 11.1)",2150,,Chhattisgarh,Central
-23,w_dm,2.5,1.9,3.1,Proportion,"2.5 (1.9, 3.1)",3407,,Madhya Pradesh,Central
+23,w_dm,2.4,1.8,3,Proportion,"2.4 (1.8, 3)",3407,,Madhya Pradesh,Central
 23,w_htn,20,18.3,21.6,Proportion,"20 (18.3, 21.6)",3407,,Madhya Pradesh,Central
-23,h_dm,4.8,3.8,5.8,Proportion,"4.8 (3.8, 5.8)",3407,,Madhya Pradesh,Central
+23,h_dm,4.4,3.5,5.4,Proportion,"4.4 (3.5, 5.4)",3407,,Madhya Pradesh,Central
 23,h_htn,27.2,25.2,29.2,Proportion,"27.2 (25.2, 29.2)",3407,,Madhya Pradesh,Central
 23,dm_joint,0.2,0,0.3,Proportion,"0.2 (0, 0.3)",3407,,Madhya Pradesh,Central
 23,htn_joint,7.1,6.1,8.1,Proportion,"7.1 (6.1, 8.1)",3407,,Madhya Pradesh,Central
-24,w_dm,2.7,1.9,3.5,Proportion,"2.7 (1.9, 3.5)",2885,,Gujarat,West
+24,w_dm,2.2,1.5,2.9,Proportion,"2.2 (1.5, 2.9)",2885,,Gujarat,West
 24,w_htn,15.7,13.9,17.5,Proportion,"15.7 (13.9, 17.5)",2885,,Gujarat,West
-24,h_dm,4.4,3.4,5.4,Proportion,"4.4 (3.4, 5.4)",2885,,Gujarat,West
+24,h_dm,4.1,3.1,5,Proportion,"4.1 (3.1, 5)",2885,,Gujarat,West
 24,h_htn,20.9,18.6,23.2,Proportion,"20.9 (18.6, 23.2)",2885,,Gujarat,West
-24,dm_joint,0.2,0,0.3,Proportion,"0.2 (0, 0.3)",2885,,Gujarat,West
+24,dm_joint,0.1,-0,0.3,Proportion,"0.1 (0, 0.3)",2885,,Gujarat,West
 24,htn_joint,5.2,4.1,6.2,Proportion,"5.2 (4.1, 6.2)",2885,,Gujarat,West
-25,w_dm,1.3,-0.4,3,Proportion,"1.3 (-0.4, 3)",194,,Dadra & Nagar Haveli And Daman & Diu,West
+25,w_dm,0.5,-0.1,1,Proportion,"0.5 (-0.1, 1)",194,,Dadra & Nagar Haveli And Daman & Diu,West
 25,w_htn,14.2,9.2,19.2,Proportion,"14.2 (9.2, 19.2)",194,,Dadra & Nagar Haveli And Daman & Diu,West
-25,h_dm,9.6,4.5,14.7,Proportion,"9.6 (4.5, 14.7)",194,,Dadra & Nagar Haveli And Daman & Diu,West
+25,h_dm,8.2,2.8,13.6,Proportion,"8.2 (2.8, 13.6)",194,,Dadra & Nagar Haveli And Daman & Diu,West
 25,h_htn,15.7,8.8,22.6,Proportion,"15.7 (8.8, 22.6)",194,,Dadra & Nagar Haveli And Daman & Diu,West
 25,dm_joint,0,0,0,Proportion,"0 (0, 0)",194,,Dadra & Nagar Haveli And Daman & Diu,West
 25,htn_joint,1.2,-0.1,2.5,Proportion,"1.2 (-0.1, 2.5)",194,,Dadra & Nagar Haveli And Daman & Diu,West
-27,w_dm,3.9,2.7,5.1,Proportion,"3.9 (2.7, 5.1)",2795,,Maharashtra,West
+27,w_dm,3.9,2.7,5,Proportion,"3.9 (2.7, 5)",2795,,Maharashtra,West
 27,w_htn,19.2,16.7,21.7,Proportion,"19.2 (16.7, 21.7)",2795,,Maharashtra,West
-27,h_dm,7.1,5.4,8.9,Proportion,"7.1 (5.4, 8.9)",2795,,Maharashtra,West
+27,h_dm,6.7,5,8.4,Proportion,"6.7 (5, 8.4)",2795,,Maharashtra,West
 27,h_htn,27.6,24.9,30.3,Proportion,"27.6 (24.9, 30.3)",2795,,Maharashtra,West
 27,dm_joint,1,0.1,1.8,Proportion,"1 (0.1, 1.8)",2795,,Maharashtra,West
 27,htn_joint,7.1,5.2,8.9,Proportion,"7.1 (5.2, 8.9)",2795,,Maharashtra,West
-28,w_dm,5.6,4,7.3,Proportion,"5.6 (4, 7.3)",861,,Andhra Pradesh,South
+28,w_dm,5.1,3.5,6.6,Proportion,"5.1 (3.5, 6.6)",861,,Andhra Pradesh,South
 28,w_htn,19.5,16.4,22.6,Proportion,"19.5 (16.4, 22.6)",861,,Andhra Pradesh,South
-28,h_dm,11.9,9.2,14.6,Proportion,"11.9 (9.2, 14.6)",861,,Andhra Pradesh,South
+28,h_dm,10.8,8.1,13.4,Proportion,"10.8 (8.1, 13.4)",861,,Andhra Pradesh,South
 28,h_htn,30.3,26.9,33.7,Proportion,"30.3 (26.9, 33.7)",861,,Andhra Pradesh,South
-28,dm_joint,1.7,0.8,2.5,Proportion,"1.7 (0.8, 2.5)",861,,Andhra Pradesh,South
+28,dm_joint,1.5,0.7,2.3,Proportion,"1.5 (0.7, 2.3)",861,,Andhra Pradesh,South
 28,htn_joint,8.5,6.6,10.5,Proportion,"8.5 (6.6, 10.5)",861,,Andhra Pradesh,South
-29,w_dm,3.8,2.7,4.9,Proportion,"3.8 (2.7, 4.9)",2131,,Karnataka,South
+29,w_dm,3.4,2.4,4.5,Proportion,"3.4 (2.4, 4.5)",2131,,Karnataka,South
 29,w_htn,17.9,15.9,19.9,Proportion,"17.9 (15.9, 19.9)",2131,,Karnataka,South
-29,h_dm,8.2,6.5,9.9,Proportion,"8.2 (6.5, 9.9)",2131,,Karnataka,South
+29,h_dm,7.9,6.2,9.6,Proportion,"7.9 (6.2, 9.6)",2131,,Karnataka,South
 29,h_htn,34.6,31.5,37.8,Proportion,"34.6 (31.5, 37.8)",2131,,Karnataka,South
 29,dm_joint,0.6,0.1,1.1,Proportion,"0.6 (0.1, 1.1)",2131,,Karnataka,South
 29,htn_joint,7.6,6,9.2,Proportion,"7.6 (6, 9.2)",2131,,Karnataka,South
@@ -173,27 +173,27 @@ state,variable,estimate,lci,uci,type,est_ci,n,stratification,n5_state,zone
 30,h_htn,32.4,23.4,41.5,Proportion,"32.4 (23.4, 41.5)",127,,Goa,West
 30,dm_joint,0.9,-0.8,2.6,Proportion,"0.9 (-0.8, 2.6)",127,,Goa,West
 30,htn_joint,6.7,2.3,11.2,Proportion,"6.7 (2.3, 11.2)",127,,Goa,West
-31,w_dm,11.3,2.9,19.7,Proportion,"11.3 (2.9, 19.7)",60,,Lakshadweep,South
+31,w_dm,9.5,1.1,17.9,Proportion,"9.5 (1.1, 17.9)",60,,Lakshadweep,South
 31,w_htn,23,12.5,33.5,Proportion,"23 (12.5, 33.5)",60,,Lakshadweep,South
-31,h_dm,7.7,-2.2,17.7,Proportion,"7.7 (-2.2, 17.7)",60,,Lakshadweep,South
+31,h_dm,6.1,-1.1,13.3,Proportion,"6.1 (-1.1, 13.3)",60,,Lakshadweep,South
 31,h_htn,30.5,16.8,44.2,Proportion,"30.5 (16.8, 44.2)",60,,Lakshadweep,South
 31,dm_joint,0,0,0,Proportion,"0 (0, 0)",60,,Lakshadweep,South
 31,htn_joint,9.3,0.6,18,Proportion,"9.3 (0.6, 18)",60,,Lakshadweep,South
-32,w_dm,9.3,6.6,12.1,Proportion,"9.3 (6.6, 12.1)",681,,Kerala,South
+32,w_dm,9,6.4,11.7,Proportion,"9 (6.4, 11.7)",681,,Kerala,South
 32,w_htn,18.2,14.7,21.6,Proportion,"18.2 (14.7, 21.6)",681,,Kerala,South
-32,h_dm,14.4,11.2,17.6,Proportion,"14.4 (11.2, 17.6)",681,,Kerala,South
+32,h_dm,14.2,11.1,17.4,Proportion,"14.2 (11.1, 17.4)",681,,Kerala,South
 32,h_htn,32.6,28.6,36.6,Proportion,"32.6 (28.6, 36.6)",681,,Kerala,South
 32,dm_joint,1.9,0.8,3,Proportion,"1.9 (0.8, 3)",681,,Kerala,South
 32,htn_joint,7.3,5.2,9.4,Proportion,"7.3 (5.2, 9.4)",681,,Kerala,South
-33,w_dm,9.2,6.9,11.4,Proportion,"9.2 (6.9, 11.4)",1783,,Tamil Nadu,South
+33,w_dm,8.8,6.5,11.1,Proportion,"8.8 (6.5, 11.1)",1783,,Tamil Nadu,South
 33,w_htn,20.5,17.7,23.4,Proportion,"20.5 (17.7, 23.4)",1783,,Tamil Nadu,South
-33,h_dm,13.4,11.1,15.7,Proportion,"13.4 (11.1, 15.7)",1783,,Tamil Nadu,South
+33,h_dm,12.7,10.5,14.9,Proportion,"12.7 (10.5, 14.9)",1783,,Tamil Nadu,South
 33,h_htn,36.3,33.5,39.1,Proportion,"36.3 (33.5, 39.1)",1783,,Tamil Nadu,South
-33,dm_joint,3.5,2.2,4.9,Proportion,"3.5 (2.2, 4.9)",1783,,Tamil Nadu,South
+33,dm_joint,3.4,2,4.7,Proportion,"3.4 (2, 4.7)",1783,,Tamil Nadu,South
 33,htn_joint,10.2,8,12.5,Proportion,"10.2 (8, 12.5)",1783,,Tamil Nadu,South
-34,w_dm,5.7,1.5,9.8,Proportion,"5.7 (1.5, 9.8)",263,,Puducherry,South
+34,w_dm,5.4,1.2,9.5,Proportion,"5.4 (1.2, 9.5)",263,,Puducherry,South
 34,w_htn,11.6,4.9,18.4,Proportion,"11.6 (4.9, 18.4)",263,,Puducherry,South
-34,h_dm,17,10.1,24,Proportion,"17 (10.1, 24)",263,,Puducherry,South
+34,h_dm,14.7,8.6,20.8,Proportion,"14.7 (8.6, 20.8)",263,,Puducherry,South
 34,h_htn,32,21.4,42.7,Proportion,"32 (21.4, 42.7)",263,,Puducherry,South
 34,dm_joint,3.3,-0.3,6.9,Proportion,"3.3 (-0.3, 6.9)",263,,Puducherry,South
 34,htn_joint,3.2,0.6,5.9,Proportion,"3.2 (0.6, 5.9)",263,,Puducherry,South
@@ -203,9 +203,9 @@ state,variable,estimate,lci,uci,type,est_ci,n,stratification,n5_state,zone
 35,h_htn,38.8,30.3,47.3,Proportion,"38.8 (30.3, 47.3)",200,,Andaman & Nicobar Islands,South
 35,dm_joint,0,0,0,Proportion,"0 (0, 0)",200,,Andaman & Nicobar Islands,South
 35,htn_joint,9.3,4.3,14.4,Proportion,"9.3 (4.3, 14.4)",200,,Andaman & Nicobar Islands,South
-36,w_dm,5.2,3.6,6.8,Proportion,"5.2 (3.6, 6.8)",2041,,Telangana,South
+36,w_dm,5.1,3.5,6.6,Proportion,"5.1 (3.5, 6.6)",2041,,Telangana,South
 36,w_htn,19.3,17.1,21.4,Proportion,"19.3 (17.1, 21.4)",2041,,Telangana,South
-36,h_dm,11.9,9.9,13.9,Proportion,"11.9 (9.9, 13.9)",2041,,Telangana,South
+36,h_dm,11.3,9.3,13.2,Proportion,"11.3 (9.3, 13.2)",2041,,Telangana,South
 36,h_htn,35.9,32.9,39,Proportion,"35.9 (32.9, 39)",2041,,Telangana,South
 36,dm_joint,1.2,0.6,1.8,Proportion,"1.2 (0.6, 1.8)",2041,,Telangana,South
 36,htn_joint,8.9,7.3,10.4,Proportion,"8.9 (7.3, 10.4)",2041,,Telangana,South

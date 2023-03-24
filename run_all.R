@@ -16,6 +16,9 @@ source("overall/n5cm02_dm poisson regression with multiple imputation.R")
 rm(list=ls()); gc(); source(".Rprofile")
 source("sensitivity/n5csensitivity01_dm and htn poisson regression with multiple imputation.R")
 
+rm(list=ls()); gc(); source(".Rprofile")
+source("sensitivity/n5csensitivity02_dm and htn poisson regression with imputed outcomes.R")
+
 # Paper ------
 
 rm(list=ls()); gc(); source(".Rprofile")

@@ -249,7 +249,7 @@ n5couples_preprocessing <- function(df){
     mutate_at(vars(glucose), function(x) case_when(is.na(x) | x > 498 ~ NA_real_,
                                                    TRUE ~ as.numeric(x))) %>% 
     # Caste
-    mutate_at(vars(caste),function(x) case_when(x == 1 ~ "Schedule Caste",
+    mutate_at(vars(one_of(c("caste","caste_hh"))),function(x) case_when(x == 1 ~ "Schedule Caste",
                                                 x == 2 ~ "Schedule Tribe",
                                                 x == 3 ~ "OBC",
                                                 x == 4 ~ "General",

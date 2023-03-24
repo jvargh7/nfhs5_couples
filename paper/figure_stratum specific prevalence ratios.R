@@ -41,10 +41,17 @@ tab_stratum <- bind_rows(htn_main,
                                        "Wealth: Medium",
                                        "Wealth: High",
                                        "Wealth: Highest",
-                                       "Religion: Hindu",
-                                       "Religion: Muslim",
-                                       "Religion: Other"),ordered=TRUE)) %>% 
+                                       "Caste: Intercaste",
+                                       "Caste: Both General",
+                                       "Caste: Both OBC",
+                                       "Caste: Both SCST"),ordered=TRUE)) %>% 
   dplyr::filter(!str_detect(label,"Religion"))
+
+
+tab_stratum %>% 
+  dplyr::select(label,outcome,sex_self,RR) %>% 
+  pivot_wider(names_from=c(outcome,sex_self),values_from=RR) %>% 
+  write_csv(.,file="paper/table_stratum specific prevalence ratio.csv")
 
 
 figA <- tab_stratum %>% dplyr::filter(outcome == "Diabetes") %>% 

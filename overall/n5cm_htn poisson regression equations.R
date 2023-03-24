@@ -23,7 +23,8 @@ w5 <- paste0("w_htn ~ h_htn*hh_low + h_htn*hh_medium + h_htn*hh_high + h_htn*hh_
 h5 <- paste0("h_htn ~ w_htn*hh_low + w_htn*hh_medium + w_htn*hh_high + w_htn*hh_highest",h_covariates,hh_covariates) %>% 
   str_replace(.,"\\+ hh_low \\+ hh_medium \\+ hh_high \\+ hh_highest","") %>% as.formula()
 
-
+w6 <- paste0("w_htn ~ h_htn*both_general + h_htn*both_obc + h_htn*both_scst",w_covariates,hh_covariates) %>% as.formula()
+h6 <- paste0("h_htn ~ w_htn*both_general + w_htn*both_obc + w_htn*both_scst",h_covariates,hh_covariates) %>% as.formula()
 
 # Lists for models --------
 
@@ -41,3 +42,6 @@ overall_h4 = list()
 
 overall_w5 = list()
 overall_h5 = list()
+
+overall_w6 = list()
+overall_h6 = list()

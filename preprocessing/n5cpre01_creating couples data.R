@@ -10,6 +10,11 @@ female_pr_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx
   dplyr::filter((is.na(female) & !is.na(iapr7a_women))|new_var %in% c(iapr_id_vars,"age"))
 
 
+iamr7c_male_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
+                                            sheet = "iacr7c variables") %>% 
+  dplyr::filter(!is.na(iamr)) 
+
+
 iacr7c_male_variables <- readxl::read_excel("data/NFHS5 Couples Variable List.xlsx",
                                             sheet = "iacr7c variables") %>% 
   dplyr::filter(!is.na(male)) 
@@ -37,6 +42,11 @@ male <- read_dta(paste0(path_india_raw_data,"/IACR7CDT/IACR7CFL.dta"),
   rename_with(~ iacr7c_male_variables$new_var[which(iacr7c_male_variables$male == .x)], 
               .cols = iacr7c_male_variables$male)
 
+male_mr <- read_dta(paste0(path_india_raw_data,"/IAMR7CDT/IAMR7CFL.dta"),
+                 col_select = iamr7c_male_variables$iamr)  %>% 
+  rename_with(~ iamr7c_male_variables$new_var[which(iamr7c_male_variables$iamr == .x)], 
+              .cols = iamr7c_male_variables$iamr)
+
 male_pr <- read_dta(paste0(path_india_raw_data,"/IAPR7CDT/IAPR7CFL.dta"),
                     col_select = male_pr_variables$iapr7a_men)  %>% 
   rename_with(~ male_pr_variables$new_var[which(male_pr_variables$iapr7a_men == .x)], 
@@ -59,6 +69,8 @@ male_processed <- male %>%
   left_join(male_pr %>% 
               dplyr::select(-age),
             by=iapr_id_vars)  %>% 
+  left_join(male_mr,
+            by = iapr_id_vars) %>% 
   n5couples_preprocessing(.)
 
 
@@ -82,10 +94,10 @@ couples <- left_join(female_processed %>%
                                      strata,state,psu,sampleweight,
                                      interview,phase,district,
                                      
-                                     caste,swealthq_ur,wealthq,
+                                     swealthq_ur,wealthq,
                                      religion,rural,nmembers,
                                      
-                                     age,eduyr,education,nchildren,
+                                     age,caste, eduyr,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
@@ -103,10 +115,11 @@ couples <- left_join(female_processed %>%
                      
                      male_processed %>% 
                        dplyr::select(cluster,hhid,spouse_id,
-                                     # caste,swealthq_ur,wealthq,
+                                     caste_hh,
+                                     # swealthq_ur,wealthq,
                                      # religion,residence,
                                      
-                                     age,eduyr,education,nchildren,
+                                     age,eduyr,caste,education,nchildren,
                                      alcohol,tobacco_any,bmi,bmi_category,
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,

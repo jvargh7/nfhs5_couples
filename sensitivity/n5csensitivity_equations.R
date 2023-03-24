@@ -20,6 +20,8 @@ sh2dm <- paste0("h_glucose ~ w_glucose",h_covariates,hh_covariates) %>% as.formu
 sw2htn <- paste0("w_sbp ~ h_sbp",w_covariates,hh_covariates) %>% as.formula()
 sh2htn <- paste0("h_sbp ~ w_sbp",h_covariates,hh_covariates) %>% as.formula()
 
+sw2bmi <- paste0("w_bmi ~ h_bmi ",w_covariates,hh_covariates) %>% str_replace_all(.,"\\+\\sw_bmi","") %>%  as.formula()
+sh2bmi <- paste0("h_bmi ~ w_bmi ",h_covariates,hh_covariates) %>% str_replace_all(.,"\\+\\sh_bmi","") %>% as.formula()
 
 
 # Lists for models --------
@@ -35,3 +37,6 @@ overall_sh2dm = list()
 
 overall_sw2htn = list()
 overall_sh2htn = list()
+
+overall_sw2bmi = list()
+overall_sh2bmi = list()

@@ -58,10 +58,10 @@ h_education,15.2,14.5,15.9,Grouped,Higher,"15.2 (14.5, 15.9)",50023
 h_education,16,15.4,16.5,Grouped,No education,"16 (15.4, 16.5)",50023
 h_education,15.9,15.4,16.5,Grouped,Primary,"15.9 (15.4, 16.5)",50023
 h_education,52.9,52.2,53.6,Grouped,Secondary,"52.9 (52.2, 53.6)",50023
-caste,25.1,24.2,26,Grouped,General,"25.1 (24.2, 26)",50023
-caste,43.1,42.2,44,Grouped,OBC,"43.1 (42.2, 44)",50023
-caste,21.6,20.8,22.5,Grouped,Schedule Caste,"21.6 (20.8, 22.5)",50023
-caste,10.2,9.6,10.7,Grouped,Schedule Tribe,"10.2 (9.6, 10.7)",50023
+caste_group,16.9,16.3,17.5,Grouped,1,"16.9 (16.3, 17.5)",50023
+caste_group,20,19.2,20.9,Grouped,2,"20 (19.2, 20.9)",50023
+caste_group,36.9,36,37.8,Grouped,3,"36.9 (36, 37.8)",50023
+caste_group,26.1,25.2,27.1,Grouped,4,"26.1 (25.2, 27.1)",50023
 religion,82.8,81.9,83.6,Grouped,Hindu,"82.8 (81.9, 83.6)",50023
 religion,12.2,11.4,13.1,Grouped,Muslim,"12.2 (11.4, 13.1)",50023
 religion,5,4.7,5.4,Grouped,Other,"5 (4.7, 5.4)",50023
