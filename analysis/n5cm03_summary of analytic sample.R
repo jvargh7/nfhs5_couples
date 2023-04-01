@@ -48,7 +48,7 @@ couples_count <- couples %>%
 left_join(couples_svysummary,
           couples_count,
           by="variable") %>% 
-  write_csv(.,"overall/summary table of analytic sample.csv")
+  write_csv(.,"analysis/summary table of analytic sample.csv")
 
 # Analytic sample --------
 excluded_svy <- excluded  %>% 
@@ -78,7 +78,7 @@ excluded_count <- excluded %>%
 left_join(excluded_svysummary,
           excluded_count,
           by="variable") %>% 
-  write_csv(.,"overall/summary table of excluded sample.csv")
+  write_csv(.,"analysis/summary table of excluded sample.csv")
 
 
 

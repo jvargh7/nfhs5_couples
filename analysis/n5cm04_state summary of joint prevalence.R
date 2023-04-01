@@ -61,4 +61,4 @@ state_svysummary %>%
               dplyr::select(v024,n5_state,zone) %>% 
               distinct(v024,n5_state,.keep_all=TRUE),
             by=c("state"="v024")) %>% 
-  write_csv(.,file = "overall/n5cm04_state summary of joint prevalence.csv")
+  write_csv(.,file = "analysis/n5cm04_state summary of joint prevalence.csv")

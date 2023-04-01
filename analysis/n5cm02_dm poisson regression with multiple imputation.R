@@ -1,12 +1,11 @@
 rm(list=ls());gc();source(".Rprofile"); 
-
 mi_dfs <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples_mi_dfs.RDS"))
 
 require(mice)
 require(srvyr)
 require(survey)
 
-source("overall/n5cm_htn poisson regression equations.R")
+source("analysis/n5cm_dm poisson regression equations.R")
 
 # Run Poisson Regression ------------
 
@@ -72,7 +71,7 @@ bind_rows(
   overall_h6_out %>% mutate(model = "H6")
   
 ) %>% 
-  write_csv(.,"overall/n5cm01_htn poisson regression with multiple imputation.csv")
+  write_csv(.,"analysis/n5cm02_dm poisson regression with multiple imputation.csv")
 
 source("C:/code/external/functions/survey/mice_contrasts_svyglm.R")
 # Check: https://github.com/jvargh7/functions/blob/main/survey/mice_contrasts_svyglm.R
@@ -81,42 +80,43 @@ source("C:/code/external/functions/survey/mice_contrasts_svyglm.R")
 # https://github.com/jvargh7/functions/blob/main/survey/contrasts_svyglm.R
 # The coefficients are in column 'RR'. The rest of the columns are for pooling multiple imputated regressions
 
-contrasts_w2_out = mice_contrasts_svyglm(svymodel_list = overall_w2,modifier = "w_ge40",exposure = "h_htn")
-contrasts_h2_out = mice_contrasts_svyglm(svymodel_list = overall_h2,modifier="h_ge40",exposure="w_htn")
+contrasts_w2_out = mice_contrasts_svyglm(svymodel_list = overall_w2,modifier = "w_ge40",exposure = "h_dm")
+contrasts_h2_out = mice_contrasts_svyglm(svymodel_list = overall_h2,modifier="h_ge40",exposure="w_dm")
 
-contrasts_w3_out_ed2 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_2",exposure = "h_htn")
-contrasts_h3_out_ed2 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_2",exposure="w_htn")
+contrasts_w3_out_ed2 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_2",exposure = "h_dm")
+contrasts_h3_out_ed2 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_2",exposure="w_dm")
 
-contrasts_w3_out_ed3 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_3",exposure = "h_htn")
-contrasts_h3_out_ed3 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_3",exposure="w_htn")
+contrasts_w3_out_ed3 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_3",exposure = "h_dm")
+contrasts_h3_out_ed3 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_3",exposure="w_dm")
 
 
-contrasts_w3_out_ed4 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_4",exposure = "h_htn")
-contrasts_h3_out_ed4 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_4",exposure="w_htn")
+contrasts_w3_out_ed4 = mice_contrasts_svyglm(svymodel_list = overall_w3,modifier = "w_education_4",exposure = "h_dm")
+contrasts_h3_out_ed4 = mice_contrasts_svyglm(svymodel_list = overall_h3,modifier="h_education_4",exposure="w_dm")
 
-contrasts_w4_out = mice_contrasts_svyglm(svymodel_list = overall_w4,modifier = "rural",exposure = "h_htn")
-contrasts_h4_out = mice_contrasts_svyglm(svymodel_list = overall_h4,modifier="rural",exposure="w_htn")
+contrasts_w4_out = mice_contrasts_svyglm(svymodel_list = overall_w4,modifier = "rural",exposure = "h_dm")
+contrasts_h4_out = mice_contrasts_svyglm(svymodel_list = overall_h4,modifier="rural",exposure="w_dm")
 
-contrasts_w5_out_wlt2 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_low",exposure = "h_htn")
-contrasts_h5_out_wlt2 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_low",exposure="w_htn")
+contrasts_w5_out_wlt2 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_low",exposure = "h_dm")
+contrasts_h5_out_wlt2 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_low",exposure="w_dm")
 
-contrasts_w5_out_wlt3 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_medium",exposure = "h_htn")
-contrasts_h5_out_wlt3 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_medium",exposure="w_htn")
+contrasts_w5_out_wlt3 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_medium",exposure = "h_dm")
+contrasts_h5_out_wlt3 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_medium",exposure="w_dm")
 
-contrasts_w5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_high",exposure = "h_htn")
-contrasts_h5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_high",exposure="w_htn")
+contrasts_w5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_high",exposure = "h_dm")
+contrasts_h5_out_wlt4 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_high",exposure="w_dm")
 
-contrasts_w5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_highest",exposure = "h_htn")
-contrasts_h5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_highest",exposure="w_htn")
+contrasts_w5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_w5,modifier = "hh_highest",exposure = "h_dm")
+contrasts_h5_out_wlt5 = mice_contrasts_svyglm(svymodel_list = overall_h5,modifier="hh_highest",exposure="w_dm")
 
-contrasts_w6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_general",exposure = "h_htn")
-contrasts_h6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_general",exposure="w_htn")
+contrasts_w6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_general",exposure = "h_dm")
+contrasts_h6_out_gen = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_general",exposure="w_dm")
 
-contrasts_w6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_obc",exposure = "h_htn")
-contrasts_h6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_obc",exposure="w_htn")
+contrasts_w6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_obc",exposure = "h_dm")
+contrasts_h6_out_obc = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_obc",exposure="w_dm")
 
-contrasts_w6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_scst",exposure = "h_htn")
-contrasts_h6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_scst",exposure="w_htn")
+contrasts_w6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_w6,modifier = "both_scst",exposure = "h_dm")
+contrasts_h6_out_scst = mice_contrasts_svyglm(svymodel_list = overall_h6,modifier="both_scst",exposure="w_dm")
+
 
 
 bind_rows(
@@ -152,4 +152,4 @@ bind_rows(
   contrasts_h6_out_scst %>% mutate(model = "H6 SCST")
   
 ) %>% 
-  write_csv(.,"overall/n5cm01_htn contrasts for poisson regression with multiple imputation.csv")
+  write_csv(.,"analysis/n5cm02_dm contrasts for poisson regression with multiple imputation.csv")

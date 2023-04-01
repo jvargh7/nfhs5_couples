@@ -1,0 +1,30 @@
+variable,Wives,Husbands
+sbp,1 (0%),9 (0%)
+dbp,1 (0%),9 (0%)
+weight,10 (0%),22 (0%)
+height,10 (0%),19 (0%)
+glucose,15 (0%),69 (0.1%)
+bmi,86 (0.2%),155 (0.3%)
+waistcircumference,58 (0.1%),99 (0.2%)
+hipcircumference,58 (0.1%),99 (0.2%)
+age,0 (0%),0 (0%)
+eduyr,0 (0%),0 (0%)
+nmembers,0 (0%),NA
+hh_children,0 (0%),NA
+diagnosed_bp,0 (0%),0 (0%)
+treated_bp,0 (0%),0 (0%)
+diagnosed_dm,0 (0%),0 (0%)
+treated_dm,0 (0%),0 (0%)
+tobacco_any,0 (0%),0 (0%)
+alcohol,0 (0%),0 (0%)
+dm,0 (0%),0 (0%)
+htn,0 (0%),0 (0%)
+rural,0 (0%),NA
+dm_joint,0 (0%),NA
+htn_joint,0 (0%),NA
+education,0 (0%),0 (0%)
+bmi_category,86 (0.2%),155 (0.3%)
+caste_group,0 (0%),NA
+religion,0 (0%),NA
+wealthq,0 (0%),NA
+swealthq_ur,0 (0%),NA
