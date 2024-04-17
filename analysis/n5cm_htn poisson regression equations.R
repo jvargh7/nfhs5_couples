@@ -6,7 +6,6 @@ hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_chi
 w0 <- paste0("w_htn ~ h_htn") %>% as.formula()
 h0 <- paste0("h_htn ~ w_htn") %>% as.formula()
 
-
 w1 <- paste0("w_htn ~ h_htn",w_covariates,hh_covariates) %>% as.formula()
 h1 <- paste0("h_htn ~ w_htn",h_covariates,hh_covariates) %>% as.formula()
 

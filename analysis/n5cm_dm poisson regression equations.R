@@ -3,6 +3,9 @@ h_covariates = "+ h_bmi + h_age + h_education_2 + h_education_3 + h_education_4 
 hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_children + rural + factor(state) + w_consang_marriage"
 #   + hh_children 
 
+w0 <- paste0("w_dm ~ h_dm") %>% as.formula()
+h0 <- paste0("h_dm ~ w_dm") %>% as.formula()
+
 w1 <- paste0("w_dm ~ h_dm",w_covariates,hh_covariates) %>% as.formula()
 h1 <- paste0("h_dm ~ w_dm",h_covariates,hh_covariates) %>% as.formula()
 
@@ -29,6 +32,9 @@ h6 <- paste0("h_dm ~ w_dm*both_general + w_dm*both_obc + w_dm*both_scst",h_covar
 
 
 # Lists for models --------
+
+overall_w0 = list()
+overall_h0 = list()
 
 overall_w1 = list()
 overall_h1 = list()

@@ -62,8 +62,8 @@ overall_h6_out = mice_coef_svyglm(overall_h6)
 
 
 bind_rows(
-  overall_w1_out %>% mutate(model = "W0"),
-  overall_h1_out %>% mutate(model = "H0"),
+  overall_w0_out %>% mutate(model = "W0"),
+  overall_h0_out %>% mutate(model = "H0"),
   overall_w1_out %>% mutate(model = "W1"),
   overall_h1_out %>% mutate(model = "H1"),
   overall_w2_out %>% mutate(model = "W2"),
