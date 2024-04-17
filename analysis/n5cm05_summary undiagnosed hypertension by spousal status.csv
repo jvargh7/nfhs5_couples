@@ -1,0 +1,7 @@
+estimate,lci,uci,est_ci,spouse_diagnosis_status,spousesex,sex,diagnosis_status
+10.2,9.4,11.1,"10.2 (9.4, 11.1)",Diagnosed,Women,Men,Undiagnosed
+75.7,74.4,76.9,"75.7 (74.4, 76.9)",No Hypertension,Women,Men,Undiagnosed
+14.1,13.1,15.2,"14.1 (13.1, 15.2)",Undiagnosed,Women,Men,Undiagnosed
+10.1,8.8,11.6,"10.1 (8.8, 11.6)",Diagnosed,Men,Women,Undiagnosed
+61,58.8,63.1,"61 (58.8, 63.1)",No Hypertension,Men,Women,Undiagnosed
+28.9,27.1,30.8,"28.9 (27.1, 30.8)",Undiagnosed,Men,Women,Undiagnosed

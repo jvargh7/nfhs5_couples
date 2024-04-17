@@ -81,7 +81,7 @@ figB <- tab_stratum %>% dplyr::filter(outcome == "Hypertension") %>%
   geom_point(position=position_dodge(width=0.9)) +
   geom_errorbar(position=position_dodge(width=0.9),width=0.1) + 
   scale_y_discrete(limits = rev) +
-  scale_x_continuous(limits=c(0,6),breaks=seq(0,6,by=1)) +
+  scale_x_continuous(limits=c(0.8,2),breaks=seq(0,2,by=0.5)) +
   theme_bw() +
   xlab("Prevalence Ratio (95% CI)") +
   ylab("") +
@@ -90,6 +90,7 @@ figB <- tab_stratum %>% dplyr::filter(outcome == "Hypertension") %>%
   theme(legend.text = element_text(size = 10),
         legend.title = element_text(size = 10),
         axis.text = element_text(size = 10),
+        legend.position = "bottom",
         axis.title = element_text(size = 10)) 
 
 require(ggpubr)
@@ -103,3 +104,11 @@ ggarrange(figA,
          width = 10,height=6,
          filename=paste0(path_couples_folder,"/figures/nfhs5 strata specific associations.png"))
 
+require(ggpubr)
+ggsave(figB,
+         width = 6,height=6,
+         filename=paste0(path_couples_folder,"/figures/nfhs5 hypertension strata specific associations.png"))
+
+ggsave(figA,
+       width = 6,height=6,
+       filename=paste0(path_couples_folder,"/figures/nfhs5 diabetes strata specific associations.png"))

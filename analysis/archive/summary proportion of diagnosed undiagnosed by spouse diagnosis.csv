@@ -1,0 +1,13 @@
+variable,estimate,lci,uci,type,est_ci,sex,diagnosis_status,spouse_status
+w_diaghtn_h_diaghtn,2.5,2.3,2.7,Proportion,"2.5 (2.3, 2.7)",Wife,Diagnosed,Diagnosed
+w_diaghtn_h_undiaghtn,2,1.9,2.2,Proportion,"2 (1.9, 2.2)",Wife,Diagnosed,Undiagnosed
+w_diaghtn_h_nohtn,6.2,5.9,6.6,Proportion,"6.2 (5.9, 6.6)",Wife,Diagnosed,No Hypertension
+w_undiaghtn_h_diaghtn,1,0.8,1.1,Proportion,"1 (0.8, 1.1)",Wife,Undiagnosed,Diagnosed
+w_undiaghtn_h_undiaghtn,2.8,2.6,3.1,Proportion,"2.8 (2.6, 3.1)",Wife,Undiagnosed,Undiagnosed
+w_undiaghtn_h_nohtn,6,5.7,6.3,Proportion,"6 (5.7, 6.3)",Wife,Undiagnosed,No Hypertension
+h_diaghtn_w_diaghtn,2.5,2.3,2.7,Proportion,"2.5 (2.3, 2.7)",Husband,Diagnosed,Diagnosed
+h_diaghtn_w_undiaghtn,1,0.8,1.1,Proportion,"1 (0.8, 1.1)",Husband,Diagnosed,Undiagnosed
+h_diaghtn_w_nohtn,5.6,5.3,5.9,Proportion,"5.6 (5.3, 5.9)",Husband,Diagnosed,No Hypertension
+h_undiaghtn_w_diaghtn,2,1.9,2.2,Proportion,"2 (1.9, 2.2)",Husband,Undiagnosed,Diagnosed
+h_undiaghtn_w_undiaghtn,2.8,2.6,3.1,Proportion,"2.8 (2.6, 3.1)",Husband,Undiagnosed,Undiagnosed
+h_undiaghtn_w_nohtn,15.2,14.7,15.7,Proportion,"15.2 (14.7, 15.7)",Husband,Undiagnosed,No Hypertension

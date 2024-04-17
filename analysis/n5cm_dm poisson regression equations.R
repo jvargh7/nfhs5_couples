@@ -1,6 +1,6 @@
 w_covariates = "+ w_bmi + w_age + w_education_2 + w_education_3 + w_education_4 + w_tobacco_any + w_alcohol"
 h_covariates = "+ h_bmi + h_age + h_education_2 + h_education_3 + h_education_4 + h_tobacco_any + h_alcohol"
-hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_children + rural + factor(state)"
+hh_covariates = "+ hh_low + hh_medium + hh_high + hh_highest + nmembers + hh_children + rural + factor(state) + w_consang_marriage"
 #   + hh_children 
 
 w1 <- paste0("w_dm ~ h_dm",w_covariates,hh_covariates) %>% as.formula()

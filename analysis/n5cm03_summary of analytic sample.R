@@ -8,20 +8,20 @@ continuous_vars <- c(paste0(rep(c("w_","h_"),each=10),
                             c("sbp","dbp","weight","height","glucose",
                               "bmi","waistcircumference","hipcircumference",
                               "age","eduyr")),
-                     "nmembers","hh_children")
+                     "nmembers","hh_children","h_npartners")
 # ,"hh_lengthmar"
-proportion_vars <- c(paste0(rep(c("w_","h_"),each=9),
+proportion_vars <- c(paste0(rep(c("w_","h_"),each=10),
                             c("diagnosed_bp","treated_bp",
                               "diagnosed_dm","treated_dm",
-                              
+                              "undiagnosed_bp",
                               "tobacco_any","alcohol",
-                              "dm","htn")),"rural","dm_joint","htn_joint")
+                              "dm","htn")),"rural","dm_joint","htn_joint","w_consang_marriage")
 
 grouped_vars <- c("w_education","w_bmi_category","h_bmi_category","h_education","caste_group","religion","wealthq","swealthq_ur")
 
 
 # Analytic sample --------
-couples_svy <- couples  %>% 
+couples_svy <- couples %>% 
   as_survey_design(.data = .,
                    ids = psu,strata = state,
                    weight = sampleweight,

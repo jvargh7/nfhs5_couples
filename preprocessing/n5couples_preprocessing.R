@@ -111,10 +111,10 @@ n5couples_preprocessing <- function(df){
            diaghtn = case_when(
              diagnosed_bp == 0 ~ NA_real_,
              is.na(sbp) | is.na(dbp) ~ NA_real_,
-             diagnosed_bp == 1 & sbp >= sbp_target ~ 1,
-             diagnosed_bp == 1 & dbp >= dbp_target ~ 1,
-             diagnosed_bp == 1 & sbp < sbp_target ~ 0,
-             diagnosed_bp == 1 & dbp < dbp_target ~ 0,
+             diagnosed_bp == 1 & sbp >= sbp_target[1] ~ 1,
+             diagnosed_bp == 1 & dbp >= dbp_target[1] ~ 1,
+             diagnosed_bp == 1 & sbp < sbp_target[1] ~ 0,
+             diagnosed_bp == 1 & dbp < dbp_target[1] ~ 0,
              TRUE ~ NA_real_)
     ) %>% 
     
@@ -483,7 +483,12 @@ n5couples_preprocessing <- function(df){
                                  TRUE ~ (age - age1stmarriage))) %>% 
     mutate(lengthmar_ge10 = case_when(lengthmar >= 10 ~ 1,
                                       lengthmar < 10 ~ 0,
-                                      TRUE ~ NA_real_,),
+                                      TRUE ~ NA_real_),
+           lengthcohabitation_ge10 = case_when(
+                                               lengthcohabitation >= 10 ~ 1,
+                                               lengthcohabitation < 10 ~ 0,
+                                               TRUE ~ NA_real_),
+           
            age_ge40 = case_when(age >= 40 ~ 1,
                                 age < 40 ~ 0,
                                 TRUE ~ NA_real_)) %>% 

@@ -1,19 +1,19 @@
 source("preprocessing/n5cpre02_analytic sample.R")
 
 
-continuous_vars <- c(paste0(rep(c("w_","h_"),each=10),
+continuous_vars <- c(paste0(rep(c("w_","h_"),each=11),
                             c("sbp","dbp","weight",
                               "height","glucose",
                               "bmi","waistcircumference","hipcircumference",
-                              "age","eduyr")),
-                     "nmembers","hh_children")
+                              "age","eduyr","lengthcohabitation")),
+                     "nmembers","hh_children","h_npartners")
 # ,"hh_lengthmar": Do not have data for most couples
-proportion_vars <- c(paste0(rep(c("w_","h_"),each=8),
+proportion_vars <- c(paste0(rep(c("w_","h_"),each=9),
                             c("diagnosed_bp","treated_bp",
                               "diagnosed_dm","treated_dm",
                               
                               "tobacco_any","alcohol",
-                              "dm","htn")),"rural")
+                              "dm","htn","lengthcohabitation_ge10")),"rural","w_consang_marriage")
 
 grouped_vars <- c("w_education","h_education","caste","religion","wealthq","swealthq_ur")
 

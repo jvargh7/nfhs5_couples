@@ -102,6 +102,8 @@ couples <- left_join(female_processed %>%
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
                                      age1stmarriage,lengthmar,lengthmar_ge10,age_ge40,
+                                     lengthcohabitation, lengthcohabitation_ge10,
+                                     consang_marriage,
                                      
                                      current_dm, toldhigh_dm,
                                      current_bp, toldhigh_bp,
@@ -124,12 +126,15 @@ couples <- left_join(female_processed %>%
                                      weight,height,waistcircumference,hipcircumference,
                                      waist_hip,highwc,highwhr,lengthmar,
                                      age1stmarriage,lengthmar,lengthmar_ge10,age_ge40,
+                                     lengthcohabitation, lengthcohabitation_ge10,
+                                     lengthseparation, npartners,
 
                                      current_dm, toldhigh_dm,
                                      current_bp, toldhigh_bp,
 
                                      dm,glucose,screened_dm,diagnosed_dm,treated_dm,
                                      htn,sbp,dbp,screened_bp,diagnosed_bp,treated_bp
+                                     
                        ) %>% 
                        rename_at(vars(age:treated_bp),~paste0("h_",.)),
                      by=c("cluster","hhid","linenumber"="spouse_id")

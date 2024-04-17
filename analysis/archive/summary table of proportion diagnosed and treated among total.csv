@@ -1,0 +1,19 @@
+spouse_htn,spouse_diagnosed_bp,variable,estimate,lci,uci,type,est_ci,sex
+0,0,w_htn,17.2,16.6,17.8,Proportion,"17.2 (16.6, 17.8)",Wife
+0,0,w_diagnosed_bp,8.8,8.3,9.3,Proportion,"8.8 (8.3, 9.3)",Wife
+0,0,w_treated_bp,5.3,4.9,5.6,Proportion,"5.3 (4.9, 5.6)",Wife
+1,0,w_htn,24.3,23.1,25.6,Proportion,"24.3 (23.1, 25.6)",Wife
+1,0,w_diagnosed_bp,10.2,9.3,11.1,Proportion,"10.2 (9.3, 11.1)",Wife
+1,0,w_treated_bp,6.4,5.7,7.1,Proportion,"6.4 (5.7, 7.1)",Wife
+1,1,w_htn,38.4,36.1,40.7,Proportion,"38.4 (36.1, 40.7)",Wife
+1,1,w_diagnosed_bp,27.5,25.3,29.7,Proportion,"27.5 (25.3, 29.7)",Wife
+1,1,w_treated_bp,11.1,9.7,12.6,Proportion,"11.1 (9.7, 12.6)",Wife
+0,0,h_htn,26.1,25.4,26.8,Proportion,"26.1 (25.4, 26.8)",Husband
+0,0,h_diagnosed_bp,7,6.7,7.4,Proportion,"7 (6.7, 7.4)",Husband
+0,0,h_treated_bp,4.6,4.3,4.9,Proportion,"4.6 (4.3, 4.9)",Husband
+1,0,h_htn,39,36.9,41.2,Proportion,"39 (36.9, 41.2)",Husband
+1,0,h_diagnosed_bp,10.1,8.7,11.5,Proportion,"10.1 (8.7, 11.5)",Husband
+1,0,h_treated_bp,7.6,6.2,9,Proportion,"7.6 (6.2, 9)",Husband
+1,1,h_htn,42.2,40.1,44.3,Proportion,"42.2 (40.1, 44.3)",Husband
+1,1,h_diagnosed_bp,23.2,21.3,25,Proportion,"23.2 (21.3, 25)",Husband
+1,1,h_treated_bp,9.3,8,10.5,Proportion,"9.3 (8, 10.5)",Husband

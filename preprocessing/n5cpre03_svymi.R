@@ -2,19 +2,19 @@ rm(list=ls());gc();source(".Rprofile");
 source("preprocessing/n5cpre02_analytic sample.R")
 
 
-continuous_vars <- c(paste0(rep(c("w_","h_"),each=10),
+continuous_vars <- c(paste0(rep(c("w_","h_"),each=11),
                             c("sbp","dbp","weight",
                               "height","glucose",
                               "bmi","waistcircumference","hipcircumference",
-                              "age","eduyr")),
-                     "nmembers","hh_children")
+                              "age","eduyr","lengthcohabitation")),
+                     "nmembers","hh_children","h_npartners")
 # ,"hh_lengthmar": Do not have data for most couples
-proportion_vars <- c(paste0(rep(c("w_","h_"),each=8),
+proportion_vars <- c(paste0(rep(c("w_","h_"),each=9),
                             c("diagnosed_bp","treated_bp",
                               "diagnosed_dm","treated_dm",
                               
                               "tobacco_any","alcohol",
-                              "dm","htn")),"rural")
+                              "dm","htn","lengthcohabitation_ge10")),"rural","w_consang_marriage")
 
 grouped_vars <- c("w_education","h_education","w_caste","h_caste","caste_hh","religion","wealthq","swealthq_ur")
 
@@ -59,13 +59,13 @@ before_imputation <- couples %>%
     h_ge40 = case_when(h_age >= 40 ~ 1,
                        TRUE ~ 0),
     
-    hh_low = case_when(wealthq == "Low" ~ 1,
+    hh_low = case_when(swealthq_ur == "Low" ~ 1,
                        TRUE ~ 0),
-    hh_medium = case_when(wealthq == "Medium" ~ 1,
+    hh_medium = case_when(swealthq_ur == "Medium" ~ 1,
                           TRUE ~ 0),
-    hh_high = case_when(wealthq == "High" ~ 1,
+    hh_high = case_when(swealthq_ur == "High" ~ 1,
                         TRUE ~ 0),
-    hh_highest = case_when(wealthq == "Highest" ~ 1,
+    hh_highest = case_when(swealthq_ur == "Highest" ~ 1,
                            TRUE ~ 0),
     
     religion_muslim = case_when(religion == "Muslim" ~ 1,
@@ -178,7 +178,7 @@ before_imputation <- couples %>%
          
   ) %>% 
   dplyr::select(-w_education,-h_education,-religion,
-                -wealthq)
+                -swealthq_ur)
 
 
 interaction_terms <- c("w_htn_rural","h_htn_rural",

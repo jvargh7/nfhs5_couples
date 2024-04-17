@@ -21,6 +21,8 @@ for(i in 1:mi_dfs$m){
                      nest = TRUE,
                      variance = "YG",pps = "brewer");
   
+  overall_w0[[i]] = svyglm(w0,design=svy_des,family=quasipoisson());
+  overall_h0[[i]] = svyglm(h0,design=svy_des,family=quasipoisson());
   overall_w1[[i]] = svyglm(w1,design=svy_des,family=quasipoisson());
   overall_h1[[i]] = svyglm(h1,design=svy_des,family=quasipoisson());
   overall_w2[[i]] = svyglm(w2,design=svy_des,family=quasipoisson());
@@ -43,6 +45,8 @@ source("C:/code/external/functions/survey/mice_coef_svyglm.R")
 # You would also have to download the following:
 # a. https://github.com/jvargh7/functions/blob/main/imputation/adjusted_ci.R
 # b. https://github.com/jvargh7/functions/tree/main/preprocessing
+overall_w0_out = mice_coef_svyglm(overall_w0)
+overall_h0_out = mice_coef_svyglm(overall_h0)
 overall_w1_out = mice_coef_svyglm(overall_w1)
 overall_h1_out = mice_coef_svyglm(overall_h1)
 overall_w2_out = mice_coef_svyglm(overall_w2)
@@ -58,6 +62,8 @@ overall_h6_out = mice_coef_svyglm(overall_h6)
 
 
 bind_rows(
+  overall_w1_out %>% mutate(model = "W0"),
+  overall_h1_out %>% mutate(model = "H0"),
   overall_w1_out %>% mutate(model = "W1"),
   overall_h1_out %>% mutate(model = "H1"),
   overall_w2_out %>% mutate(model = "W2"),

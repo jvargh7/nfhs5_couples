@@ -37,7 +37,12 @@ couples_pre <- readRDS(paste0(path_couples_folder,"/working/nfhs5c couples.RDS")
                                  h_caste == "OBC" & w_caste == "OBC" ~ 3,
                                  h_caste == "Schedule Caste" & w_caste == "Schedule Caste" ~ 4,
                                  h_caste == "Schedule Tribe" & w_caste == "Schedule Tribe" ~ 4,
-                                 TRUE ~ 1))
+                                 TRUE ~ 1))  %>% 
+  mutate(w_undiagnosed_bp = case_when(w_htn == 1 & w_diagnosed_bp == 0 ~ 1,
+                                      TRUE ~ 0),
+         h_undiagnosed_bp = case_when(h_htn == 1 & h_diagnosed_bp == 0 ~ 1,
+                                      TRUE ~ 0)
+  ) 
 
 
 # couples %>% 

@@ -4,14 +4,14 @@ require(mice)
 require(srvyr)
 require(survey)
 
-source("overall/n5cm_htn poisson regression equations.R")
+source("analysis/n5cm_htn poisson regression equations.R")
 htn_w1 = w1
 htn_h1 = h1
-source("overall/n5cm_dm poisson regression equations.R")
+source("analysis/n5cm_dm poisson regression equations.R")
 dm_w1 = w1
 dm_h1 = h1
 # Run Poisson Regression ------------
-overall_htn_w1 <- overall_htn_h1 <- overall_dm_w1 <- overall_dm_h1 <- NULL
+overall_htn_w1 <- overall_htn_h1 <- overall_dm_w1 <- overall_dm_h1 <- list()
 
 for(i in 1:mi_dfs$m){
   df = complete(mi_dfs,action = i);
